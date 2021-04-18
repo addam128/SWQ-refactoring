@@ -46,8 +46,11 @@ public class PlayGround extends Core implements KeyListener, MouseListener,
 	public void draw(Graphics2D g) {
 		playerOne.move(moveAmount);
 		playerTwo.move(moveAmount);
-		for (int x = 0;x<pathx1.size();x++){
-			if (((centrex1 == pathx1.get(x)) && (centrey1 == pathy1.get(x))) || ((centrex2 == pathx2.get(x)) && (centrey2 == pathy2.get(x))) || ((centrex1 == pathx2.get(x)) && (centrey1 == pathy2.get(x))) || ((centrex2 == pathx1.get(x)) && (centrey2 == pathy1.get(x)))){
+		for (int x = 0;x<playerOne.getPath().size();x++){
+			if (((playerOne.getX() == playerOne.getPath().get(x).getX()) && (playerOne.getY() == playerOne.getPath().get(x).getY())) )/*||
+					((centrex2 == pathx2.get(x)) && (centrey2 == pathy2.get(x))) ||
+					((centrex1 == pathx2.get(x)) && (centrey1 == pathy2.get(x))) ||
+					((centrex2 == pathx1.get(x)) && (centrey2 == pathy1.get(x))))*/{
 				System.exit(0);
 			}
 		}
