@@ -44,82 +44,20 @@ public class PlayGround extends Core implements KeyListener, MouseListener,
 	}
 
 	public void draw(Graphics2D g) {
-		switch(currentDirection1){
-			case UP:
-				if (centrey1>0){
-					centrey1-=moveAmount;
-				} else {
-					centrey1 = sm.getHeight();
-				}
-				break;
-			case RIGHT:
-				if (centrex1 < sm.getWidth()){
-					centrex1+=moveAmount;
-				} else {
-					centrex1 = 0;
-				}
-				break;
-			case DOWN:
-				if (centrey1 < sm.getHeight()){
-					centrey1+=moveAmount;
-				} else {
-					centrey1 = 0;
-				}
-				break;
-			case LEFT:
-				if (centrex1>0){
-					centrex1-=moveAmount;
-				} else {
-					centrex1 = sm.getWidth();
-				}
-				break;
-		}
-		switch(currentDirection2){
-			case UP:
-				if (centrey2>0){
-					centrey2-=moveAmount;
-				} else {
-					centrey2 = sm.getHeight();
-				}
-				break;
-			case RIGHT:
-				if (centrex2 < sm.getWidth()){
-					centrex2+=moveAmount;
-				} else {
-					centrex2 = 0;
-				}
-				break;
-			case DOWN:
-				if (centrey2 < sm.getHeight()){
-					centrey2+=moveAmount;
-				} else {
-					centrey2 = 0;
-				}
-				break;
-			case LEFT:
-				if (centrex2>0){
-					centrex2-=moveAmount;
-				} else {
-					centrex2 = sm.getWidth();
-				}
-				break;
-		}
+		playerOne.move(moveAmount);
+		playerTwo.move(moveAmount);
 		for (int x = 0;x<pathx1.size();x++){
 			if (((centrex1 == pathx1.get(x)) && (centrey1 == pathy1.get(x))) || ((centrex2 == pathx2.get(x)) && (centrey2 == pathy2.get(x))) || ((centrex1 == pathx2.get(x)) && (centrey1 == pathy2.get(x))) || ((centrex2 == pathx1.get(x)) && (centrey2 == pathy1.get(x)))){
 				System.exit(0);
 			}
 		}
-		pathx1.add(centrex1);
-		pathy1.add(centrey1);
-		pathx2.add(centrex2);
-		pathy2.add(centrey2);
 		g.setColor(Color.BLACK);
 		g.fillRect(0, 0, sm.getWidth(), sm.getHeight());
-		for (int x = 0;x<pathx1.size();x++){
+		for (int x = 0;x<playerOne.getPath().size();x++){
 			g.setColor(Color.green);
-			g.fillRect(pathx1.get(x), pathy1.get(x), 10, 10);
+			g.fillRect(playerOne.getPath().get(x).getX(), playerOne.getPath().get(x).getY(), 10, 10);
 			g.setColor(Color.red);
-			g.fillRect(pathx2.get(x), pathy2.get(x), 10, 10);
+			g.fillRect(playerTwo.getPath().get(x).getX(), playerTwo.getPath().get(x).getY(), 10, 10);
 		}
 	}
 
