@@ -26,11 +26,21 @@ public class Player {
     }
 
     void changeDirection(Direction newDirection) {
+
+        if (direction == Direction.UP && newDirection == Direction.DOWN ||
+                newDirection == Direction.UP && direction == Direction.DOWN) {
+            return;
+        }
+        if (direction == Direction.LEFT && newDirection == Direction.RIGHT ||
+                newDirection == Direction.LEFT && direction == Direction.RIGHT) {
+            return;
+        }
+
         direction = newDirection;
     }
 
     List<Position.Coordinate> getPath() {
         return path;
     }
-    
+
 }
