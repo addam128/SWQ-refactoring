@@ -9,6 +9,8 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
+import static java.util.Arrays.asList;
+
 public class PlayGround extends Core implements KeyListener, MouseListener,
 		MouseMotionListener {
 
@@ -36,13 +38,9 @@ public class PlayGround extends Core implements KeyListener, MouseListener,
 	public void draw(Graphics2D g) {
 		playerOne.move(moveAmount);
 		playerTwo.move(moveAmount);
-		for (int x = 0;x<playerOne.getPath().size();x++){
-			if (((playerOne.getX() == playerOne.getPath().get(x).getX()) && (playerOne.getY() == playerOne.getPath().get(x).getY())) ||
-					((playerTwo.getX() == playerTwo.getPath().get(x).getX()) && (playerTwo.getY() == playerTwo.getPath().get(x).getY())) ||
-					((playerOne.getX() == playerTwo.getPath().get(x).getX()) && (playerOne.getY() == playerTwo.getPath().get(x).getY())) ||
-					((playerTwo.getX() == playerOne.getPath().get(x).getX()) && (playerTwo.getY() == playerOne.getPath().get(x).getY()))) {
-				System.exit(0);
-			}
+
+		if (CollisionDetector.detect(asList(playerOne, playerTwo))) {
+			System.exit(0);
 		}
 		g.setColor(Color.BLACK);
 		g.fillRect(0, 0, sm.getWidth(), sm.getHeight());
