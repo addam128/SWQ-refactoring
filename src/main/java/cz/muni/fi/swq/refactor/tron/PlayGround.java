@@ -8,11 +8,10 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
-import java.util.ArrayList;
 
 public class PlayGround extends Core implements KeyListener, MouseListener,
 		MouseMotionListener {
-	
+
 	int moveAmount = 5;
 
 	Player playerOne;
