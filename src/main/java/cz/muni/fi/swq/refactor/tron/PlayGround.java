@@ -8,16 +8,17 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.util.ArrayList;
+import java.util.List;
 
-import static java.util.Arrays.asList;
 
 public class PlayGround extends Core implements KeyListener, MouseListener,
 		MouseMotionListener {
 
 	int moveAmount = 5;
 
-	Player playerOne;
-	Player playerTwo;
+	List<Player> players;
+	List<Color> colors;
 
 	public void init() {
 		super.init();
@@ -27,8 +28,14 @@ public class PlayGround extends Core implements KeyListener, MouseListener,
 		w.addMouseListener(this);
 		w.addMouseMotionListener(this);
 
-		playerOne = new Player(40,40, sm.getWidth(), sm.getHeight(), Direction.RIGHT);
-		playerTwo = new Player(600, 440, sm.getWidth(), sm.getHeight(), Direction.LEFT);
+		players = new ArrayList<>();
+		colors = new ArrayList<>();
+
+		players.add(new Player(40,40, sm.getWidth(), sm.getHeight(), Direction.RIGHT));
+		players.add(new Player(600, 440, sm.getWidth(), sm.getHeight(), Direction.LEFT));
+
+		colors.add(Color.green);
+		colors.add(Color.red);
 	}
 
 	public static void main(String[] args) {
@@ -36,19 +43,21 @@ public class PlayGround extends Core implements KeyListener, MouseListener,
 	}
 
 	public void draw(Graphics2D g) {
-		playerOne.move(moveAmount);
-		playerTwo.move(moveAmount);
 
-		if (CollisionDetector.detect(asList(playerOne, playerTwo))) {
+		for (Player player : players) {
+			player.move(moveAmount);
+		}
+
+		if (CollisionDetector.detect(players)) {
 			System.exit(0);
 		}
 		g.setColor(Color.BLACK);
 		g.fillRect(0, 0, sm.getWidth(), sm.getHeight());
-		for (int x = 0;x<playerOne.getPath().size();x++){
-			g.setColor(Color.green);
-			g.fillRect(playerOne.getPath().get(x).getX(), playerOne.getPath().get(x).getY(), 10, 10);
-			g.setColor(Color.red);
-			g.fillRect(playerTwo.getPath().get(x).getX(), playerTwo.getPath().get(x).getY(), 10, 10);
+		for (int i = 0; i < players.size(); i++){
+			g.setColor(colors.get(i));
+			for (int r = 0; r < players.get(i).getPath().size(); r ++) {
+				g.fillRect(players.get(i).getPath().get(r).getX(), players.get(i).getPath().get(r).getY(), 10, 10);
+			}
 		}
 	}
 
@@ -58,6 +67,8 @@ public class PlayGround extends Core implements KeyListener, MouseListener,
 	// LEFT 3
 
 	public void keyPressed(KeyEvent e) {
+		if (players.size() < 1) { return ;}
+		Player playerOne = players.get(0);
 		if (e.getKeyCode() == KeyEvent.VK_UP) {
 			playerOne.changeDirection(Direction.UP);
 		} else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
@@ -67,6 +78,8 @@ public class PlayGround extends Core implements KeyListener, MouseListener,
 		} else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
 			playerOne.changeDirection(Direction.LEFT);
 		}
+		if (players.size() < 2) {return;}
+		Player playerTwo = players.get(1);
 		if (e.getKeyCode() == KeyEvent.VK_W){
 			playerTwo.changeDirection(Direction.UP);
 		} else if (e.getKeyCode() == KeyEvent.VK_S) {
