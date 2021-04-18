@@ -43,4 +43,12 @@ public class Player {
         return path;
     }
 
+    int getX() {
+        return position.getX();
+    }
+
+    int getY() {
+        return position.getY();
+    }
+
 }

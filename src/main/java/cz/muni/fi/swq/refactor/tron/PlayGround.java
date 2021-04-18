@@ -29,6 +29,7 @@ public class PlayGround extends Core implements KeyListener, MouseListener,
 
 	public void init() {
 		super.init();
+
 		Window w = sm.getFullScreenWindow();
 		w.addKeyListener(this);
 		w.addMouseListener(this);
@@ -44,70 +45,70 @@ public class PlayGround extends Core implements KeyListener, MouseListener,
 
 	public void draw(Graphics2D g) {
 		switch(currentDirection1){
-		case UP:
-			if (centrey1>0){
-			centrey1-=moveAmount;
-			} else {
-				centrey1 = sm.getHeight();
-			}
-			break;
+			case UP:
+				if (centrey1>0){
+					centrey1-=moveAmount;
+				} else {
+					centrey1 = sm.getHeight();
+				}
+				break;
 			case RIGHT:
-			if (centrex1 < sm.getWidth()){
-			centrex1+=moveAmount;
-			} else {
-				centrex1 = 0;
-			}
-			break;
+				if (centrex1 < sm.getWidth()){
+					centrex1+=moveAmount;
+				} else {
+					centrex1 = 0;
+				}
+				break;
 			case DOWN:
-			if (centrey1 < sm.getHeight()){
-			centrey1+=moveAmount;
-			} else {
-				centrey1 = 0;
-			}
-			break;
+				if (centrey1 < sm.getHeight()){
+					centrey1+=moveAmount;
+				} else {
+					centrey1 = 0;
+				}
+				break;
 			case LEFT:
-			if (centrex1>0){
-			centrex1-=moveAmount;
-			} else {
-				centrex1 = sm.getWidth();
-			}
-			break;
+				if (centrex1>0){
+					centrex1-=moveAmount;
+				} else {
+					centrex1 = sm.getWidth();
+				}
+				break;
 		}
 		switch(currentDirection2){
-		case UP:
-			if (centrey2>0){
-			centrey2-=moveAmount;
-			} else {
-				centrey2 = sm.getHeight();
-			}
-			break;
-		case RIGHT:
-			if (centrex2 < sm.getWidth()){
-			centrex2+=moveAmount;
-			} else {
-				centrex2 = 0;
-			}
-			break;
-		case DOWN:
-			if (centrey2 < sm.getHeight()){
-			centrey2+=moveAmount;
-			} else {
-				centrey2 = 0;
-			}
-			break;
-		case LEFT:
-			if (centrex2>0){
-			centrex2-=moveAmount;
-			} else {
-				centrex2 = sm.getWidth();
-			}
-			break;
+			case UP:
+				if (centrey2>0){
+					centrey2-=moveAmount;
+				} else {
+					centrey2 = sm.getHeight();
+				}
+				break;
+			case RIGHT:
+				if (centrex2 < sm.getWidth()){
+					centrex2+=moveAmount;
+				} else {
+					centrex2 = 0;
+				}
+				break;
+			case DOWN:
+				if (centrey2 < sm.getHeight()){
+					centrey2+=moveAmount;
+				} else {
+					centrey2 = 0;
+				}
+				break;
+			case LEFT:
+				if (centrex2>0){
+					centrex2-=moveAmount;
+				} else {
+					centrex2 = sm.getWidth();
+				}
+				break;
 		}
-	    for (int x = 0;x<pathx1.size();x++){
-	    	if (((centrex1 == pathx1.get(x)) && (centrey1 == pathy1.get(x))) || ((centrex2 == pathx2.get(x)) && (centrey2 == pathy2.get(x))) || ((centrex1 == pathx2.get(x)) && (centrey1 == pathy2.get(x))) || ((centrex2 == pathx1.get(x)) && (centrey2 == pathy1.get(x)))){
-	    		System.exit(0);
-	    	}
-	    }
+		for (int x = 0;x<pathx1.size();x++){
+			if (((centrex1 == pathx1.get(x)) && (centrey1 == pathy1.get(x))) || ((centrex2 == pathx2.get(x)) && (centrey2 == pathy2.get(x))) || ((centrex1 == pathx2.get(x)) && (centrey1 == pathy2.get(x))) || ((centrex2 == pathx1.get(x)) && (centrey2 == pathy1.get(x)))){
+				System.exit(0);
+			}
+		}
 		pathx1.add(centrex1);
 		pathy1.add(centrey1);
 		pathx2.add(centrex2);
@@ -115,10 +116,10 @@ public class PlayGround extends Core implements KeyListener, MouseListener,
 		g.setColor(Color.BLACK);
 		g.fillRect(0, 0, sm.getWidth(), sm.getHeight());
 		for (int x = 0;x<pathx1.size();x++){
-		g.setColor(Color.green);
-		g.fillRect(pathx1.get(x), pathy1.get(x), 10, 10);
-		g.setColor(Color.red);
-		g.fillRect(pathx2.get(x), pathy2.get(x), 10, 10);
+			g.setColor(Color.green);
+			g.fillRect(pathx1.get(x), pathy1.get(x), 10, 10);
+			g.setColor(Color.red);
+			g.fillRect(pathx2.get(x), pathy2.get(x), 10, 10);
 		}
 	}
 
@@ -129,22 +130,38 @@ public class PlayGround extends Core implements KeyListener, MouseListener,
 
 	public void keyPressed(KeyEvent e) {
 		if (e.getKeyCode() == KeyEvent.VK_UP) {
-			playerOne.changeDirection(Direction.UP);
+			if (currentDirection1 != Direction.DOWN){
+				currentDirection1 = Direction.UP;
+			}
 		} else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-			playerOne.changeDirection(Direction.DOWN);
+			if (currentDirection1 != Direction.UP){
+				currentDirection1 = Direction.DOWN;
+			}
 		} else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-			playerOne.changeDirection(Direction.RIGHT);
+			if (currentDirection1 != Direction.LEFT){
+				currentDirection1 = Direction.RIGHT;
+			}
 		} else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-			playerOne.changeDirection(Direction.LEFT);
+			if (currentDirection1 != Direction.RIGHT){
+				currentDirection1 = Direction.LEFT;
+			}
 		}
 		if (e.getKeyCode() == KeyEvent.VK_W){
-			playerTwo.changeDirection(Direction.UP);
+			if (currentDirection2 != Direction.DOWN){
+				currentDirection2 = Direction.UP;
+			}
 		} else if (e.getKeyCode() == KeyEvent.VK_S) {
-			playerTwo.changeDirection(Direction.DOWN);
+			if (currentDirection2 != Direction.UP){
+				currentDirection2 = Direction.DOWN;
+			}
 		} else if (e.getKeyCode() == KeyEvent.VK_D) {
-			playerTwo.changeDirection(Direction.RIGHT);
+			if (currentDirection2 != Direction.LEFT){
+				currentDirection2 = Direction.RIGHT;
+			}
 		} else if (e.getKeyCode() == KeyEvent.VK_A) {
-			playerTwo.changeDirection(Direction.LEFT);
+			if (currentDirection2 != Direction.RIGHT){
+				currentDirection2 = Direction.LEFT;
+			}
 		}
 	}
 

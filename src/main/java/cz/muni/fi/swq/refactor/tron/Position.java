@@ -23,8 +23,8 @@ public class Position {
 
     private Coordinate coords;
 
-    private int maxX;
-    private int maxY;
+    private final int maxX;
+    private final int maxY;
 
     public Position(
             int startX,
