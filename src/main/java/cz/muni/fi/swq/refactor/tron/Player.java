@@ -5,9 +5,9 @@ import java.util.List;
 
 public class Player {
 
-    private Position position;
+    private final Position position;
     private Direction direction;
-    private List<Position.Coordinate> path;
+    private final List<Position.Coordinate> path;
 
     Player(
             int startX,
@@ -21,4 +21,16 @@ public class Player {
         path = new ArrayList<>();
     }
 
+    Position.Coordinate move(int amount) {
+        return position.move(amount, direction);
+    }
+
+    void changeDirection(Direction newDirection) {
+        direction = newDirection;
+    }
+
+    List<Position.Coordinate> getPath() {
+        return path;
+    }
+    
 }

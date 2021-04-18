@@ -45,7 +45,7 @@ public class Position {
         return coords.getY();
     }
 
-    public Coordinate move() {
+    Coordinate move(int amount, Direction direction) {
         // TODO : set new coords return old
         Coordinate oldCoords = coords;
         coords = new Coordinate(0, 0); // moved x,y
