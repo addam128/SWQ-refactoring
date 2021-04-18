@@ -49,8 +49,8 @@ public class PlayGround extends Core implements KeyListener, MouseListener,
 		for (int x = 0;x<playerOne.getPath().size();x++){
 			if (((playerOne.getX() == playerOne.getPath().get(x).getX()) && (playerOne.getY() == playerOne.getPath().get(x).getY())) ||
 					((playerTwo.getX() == playerTwo.getPath().get(x).getX()) && (playerTwo.getY() == playerTwo.getPath().get(x).getY())) ||
-					((playerOne.getX() == playerTwo.getPath().get(x).getX()) && (playerOne.getY() == playerTwo.getPath().get(x).getY())) )/*||
-					((centrex2 == pathx1.get(x)) && (centrey2 == pathy1.get(x))))*/{
+					((playerOne.getX() == playerTwo.getPath().get(x).getX()) && (playerOne.getY() == playerTwo.getPath().get(x).getY())) ||
+					((playerTwo.getX() == playerOne.getPath().get(x).getX()) && (playerTwo.getY() == playerOne.getPath().get(x).getY()))) {
 				System.exit(0);
 			}
 		}
