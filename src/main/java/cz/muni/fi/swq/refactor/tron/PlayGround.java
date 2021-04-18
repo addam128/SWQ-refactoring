@@ -16,8 +16,8 @@ public class PlayGround extends Core implements KeyListener, MouseListener,
 	int centrey1 = 40;
 	int centrex2 = 600;
 	int centrey2 = 440;
-	int currentDirection1 = 1;
-	int currentDirection2 = 3;
+	Direction currentDirection1 = Direction.RIGHT;
+	Direction currentDirection2 = Direction.LEFT;
 	int moveAmount = 5;
 	ArrayList<Integer> pathx1 = new ArrayList();
 	ArrayList<Integer> pathy1 = new ArrayList();
@@ -39,28 +39,28 @@ public class PlayGround extends Core implements KeyListener, MouseListener,
 
 	public void draw(Graphics2D g) {
 		switch(currentDirection1){
-		case 0:
+		case UP:
 			if (centrey1>0){
 			centrey1-=moveAmount;
 			} else {
 				centrey1 = sm.getHeight();
 			}
 			break;
-		case 1:
+			case RIGHT:
 			if (centrex1 < sm.getWidth()){
 			centrex1+=moveAmount;
 			} else {
 				centrex1 = 0;
 			}
 			break;
-		case 2:
+			case DOWN:
 			if (centrey1 < sm.getHeight()){
 			centrey1+=moveAmount;
 			} else {
 				centrey1 = 0;
 			}
 			break;
-		case 3:
+			case LEFT:
 			if (centrex1>0){
 			centrex1-=moveAmount;
 			} else {
@@ -69,28 +69,28 @@ public class PlayGround extends Core implements KeyListener, MouseListener,
 			break;
 		}
 		switch(currentDirection2){
-		case 0:
+		case UP:
 			if (centrey2>0){
 			centrey2-=moveAmount;
 			} else {
 				centrey2 = sm.getHeight();
 			}
 			break;
-		case 1:
+		case RIGHT:
 			if (centrex2 < sm.getWidth()){
 			centrex2+=moveAmount;
 			} else {
 				centrex2 = 0;
 			}
 			break;
-		case 2:
+		case DOWN:
 			if (centrey2 < sm.getHeight()){
 			centrey2+=moveAmount;
 			} else {
 				centrey2 = 0;
 			}
 			break;
-		case 3:
+		case LEFT:
 			if (centrex2>0){
 			centrex2-=moveAmount;
 			} else {
@@ -117,39 +117,44 @@ public class PlayGround extends Core implements KeyListener, MouseListener,
 		}
 	}
 
+	// DOWN 2
+	// UP 0
+	// RIGHT 1
+	// LEFT 3
+
 	public void keyPressed(KeyEvent e) {
 		if (e.getKeyCode() == KeyEvent.VK_UP) {
-			if (currentDirection1 != 2){
-			currentDirection1 = 0;
+			if (currentDirection1 != Direction.DOWN){
+			currentDirection1 = Direction.UP;
 			}
 		} else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-			if (currentDirection1 != 0){
-				currentDirection1 = 2;
+			if (currentDirection1 != Direction.UP){
+				currentDirection1 = Direction.DOWN;
 				}
 		} else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-			if (currentDirection1 != 3){
-				currentDirection1 = 1;
+			if (currentDirection1 != Direction.LEFT){
+				currentDirection1 = Direction.RIGHT;
 				}
 		} else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-			if (currentDirection1 != 1){
-				currentDirection1 = 3;
+			if (currentDirection1 != Direction.RIGHT){
+				currentDirection1 = Direction.LEFT;
 				}
 		}
 		if (e.getKeyCode() == KeyEvent.VK_W){
-			if (currentDirection2 != 2){
-			currentDirection2 = 0;
+			if (currentDirection2 != Direction.DOWN){
+			currentDirection2 = Direction.UP;
 			}
 		} else if (e.getKeyCode() == KeyEvent.VK_S) {
-			if (currentDirection2 != 0){
-				currentDirection2 = 2;
+			if (currentDirection2 != Direction.UP){
+				currentDirection2 = Direction.DOWN;
 				}
 		} else if (e.getKeyCode() == KeyEvent.VK_D) {
-			if (currentDirection2 != 3){
-				currentDirection2 = 1;
+			if (currentDirection2 != Direction.LEFT){
+				currentDirection2 = Direction.RIGHT;
 				}
 		} else if (e.getKeyCode() == KeyEvent.VK_A) {
-			if (currentDirection2 != 1){
-				currentDirection2 = 3;
+			if (currentDirection2 != Direction.RIGHT){
+				currentDirection2 = Direction.LEFT;
 				}
 		}
 	}
