@@ -68,38 +68,22 @@ public class PlayGround extends Core implements KeyListener, MouseListener,
 
 	public void keyPressed(KeyEvent e) {
 		if (e.getKeyCode() == KeyEvent.VK_UP) {
-			if (currentDirection1 != Direction.DOWN){
-				currentDirection1 = Direction.UP;
-			}
+			playerOne.changeDirection(Direction.UP);
 		} else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-			if (currentDirection1 != Direction.UP){
-				currentDirection1 = Direction.DOWN;
-			}
+			playerOne.changeDirection(Direction.DOWN);
 		} else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-			if (currentDirection1 != Direction.LEFT){
-				currentDirection1 = Direction.RIGHT;
-			}
+			playerOne.changeDirection(Direction.RIGHT);
 		} else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-			if (currentDirection1 != Direction.RIGHT){
-				currentDirection1 = Direction.LEFT;
-			}
+			playerOne.changeDirection(Direction.LEFT);
 		}
 		if (e.getKeyCode() == KeyEvent.VK_W){
-			if (currentDirection2 != Direction.DOWN){
-				currentDirection2 = Direction.UP;
-			}
+			playerTwo.changeDirection(Direction.UP);
 		} else if (e.getKeyCode() == KeyEvent.VK_S) {
-			if (currentDirection2 != Direction.UP){
-				currentDirection2 = Direction.DOWN;
-			}
+			playerTwo.changeDirection(Direction.DOWN);
 		} else if (e.getKeyCode() == KeyEvent.VK_D) {
-			if (currentDirection2 != Direction.LEFT){
-				currentDirection2 = Direction.RIGHT;
-			}
+			playerTwo.changeDirection(Direction.RIGHT);
 		} else if (e.getKeyCode() == KeyEvent.VK_A) {
-			if (currentDirection2 != Direction.RIGHT){
-				currentDirection2 = Direction.LEFT;
-			}
+			playerTwo.changeDirection(Direction.LEFT);
 		}
 	}
 

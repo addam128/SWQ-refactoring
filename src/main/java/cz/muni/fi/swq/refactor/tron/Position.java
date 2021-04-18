@@ -58,10 +58,10 @@ public class Position {
 
         switch (direction) {
             case UP:
-                newY = (newY < maxY) ? newY + amount : 0;
+                newY = (newY > 0) ? newY - amount : maxY;
                 break;
             case DOWN:
-                newY = (newY > 0) ? newY - amount : maxY;
+                newY = (newY < maxY) ? newY + amount : 0;
                 break;
             case LEFT:
                 newX = (newX > 0) ? newX - amount : maxX;
