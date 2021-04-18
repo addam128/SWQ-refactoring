@@ -12,17 +12,8 @@ import java.util.ArrayList;
 
 public class PlayGround extends Core implements KeyListener, MouseListener,
 		MouseMotionListener {
-	int centrex1 = 40;
-	int centrey1 = 40;
-	int centrex2 = 600;
-	int centrey2 = 440;
-	Direction currentDirection1 = Direction.RIGHT;
-	Direction currentDirection2 = Direction.LEFT;
+	
 	int moveAmount = 5;
-	ArrayList<Integer> pathx1 = new ArrayList();
-	ArrayList<Integer> pathy1 = new ArrayList();
-	ArrayList<Integer> pathx2 = new ArrayList();
-	ArrayList<Integer> pathy2 = new ArrayList();
 
 	Player playerOne;
 	Player playerTwo;
