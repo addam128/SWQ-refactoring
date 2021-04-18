@@ -45,10 +45,31 @@ public class Position {
         return coords.getY();
     }
 
-    Coordinate move(int amount, Direction direction) {
-        // TODO : set new coords return old
+    Coordinate change(int amount, Direction direction) {
         Coordinate oldCoords = coords;
-        coords = new Coordinate(0, 0); // moved x,y
-        return oldCoords; //dummy
+        coords = computeNewCoords(amount, direction);
+        return oldCoords;
+    }
+
+    private Coordinate computeNewCoords(int amount, Direction direction) {
+
+        int newX = coords.getX();
+        int newY = coords.getY();
+
+        switch (direction) {
+            case UP:
+                newY = (newY < maxY) ? newY + amount : 0;
+                break;
+            case DOWN:
+                newY = (newY > 0) ? newY - amount : maxY;
+                break;
+            case LEFT:
+                newX = (newX > 0) ? newX - amount : maxX;
+                break;
+            case RIGHT:
+                newX = (newX < maxX) ? newX + amount : 0;
+                break;
+        }
+        return new Coordinate(newX, newY);
     }
 }

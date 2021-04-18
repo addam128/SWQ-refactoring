@@ -21,8 +21,8 @@ public class Player {
         path = new ArrayList<>();
     }
 
-    Position.Coordinate move(int amount) {
-        return position.move(amount, direction);
+    void move(int amount) {
+        path.add(position.change(amount, direction));
     }
 
     void changeDirection(Direction newDirection) {
