@@ -1,9 +1,7 @@
 package cz.muni.fi.swq.refactor.tron;
 
-import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics2D;
-import java.awt.Stroke;
 import java.awt.Window;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -12,7 +10,7 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 
-public class yourclass extends Core implements KeyListener, MouseListener,
+public class PlayGround extends Core implements KeyListener, MouseListener,
 		MouseMotionListener {
 	int centrex1 = 40;
 	int centrey1 = 40;
@@ -36,7 +34,7 @@ public class yourclass extends Core implements KeyListener, MouseListener,
 	}
 
 	public static void main(String[] args) {
-		new yourclass().run();
+		new PlayGround().run();
 	}
 
 	public void draw(Graphics2D g) {
