@@ -24,7 +24,7 @@ public abstract class PlayerTrait implements PlayerContract {
 
     public abstract void changeDirection(Direction newDirection);
 
-    public List<Position.Coordinate> getPath() {
+    public List<PositionTrait.Coordinate> getPath() {
         return path;
     }
 

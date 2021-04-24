@@ -3,6 +3,7 @@ package cz.muni.fi.swq.refactor.tron;
 import cz.muni.fi.swq.refactor.tron.engine.models.CollisionDetectorContract;
 import cz.muni.fi.swq.refactor.tron.engine.models.ColoredRectangle;
 import cz.muni.fi.swq.refactor.tron.engine.models.PlayGroundContract;
+import cz.muni.fi.swq.refactor.tron.engine.models.PlayerContract;
 import cz.muni.fi.swq.refactor.tron.engine.models.PlayerTrait;
 
 import java.awt.Color;
@@ -16,7 +17,7 @@ public class PlayGround implements PlayGroundContract {
 
 	private static final CollisionDetectorContract COLLISION_DETECTOR = new CollisionDetector();
 
-	List<PlayerTrait> players;
+	List<PlayerContract> players;
 	List<Color> colors;
 
 	public PlayGround() {
@@ -25,7 +26,7 @@ public class PlayGround implements PlayGroundContract {
 	}
 
 	@Override
-	public void addPlayer(PlayerTrait player, Color color) {
+	public void addPlayer(PlayerContract player, Color color) {
 		colors.add(color);
 		players.add(player);
 	}
@@ -33,7 +34,7 @@ public class PlayGround implements PlayGroundContract {
 
 	@Override
 	public void gameTick() {
-		for (PlayerTrait player : players) {
+		for (PlayerContract player : players) {
 			player.move(moveAmount);
 		}
 

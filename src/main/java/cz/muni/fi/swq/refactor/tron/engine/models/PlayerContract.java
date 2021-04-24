@@ -9,7 +9,8 @@ import java.util.List;
  */
 public interface PlayerContract {
     void move(int amount);
-    abstract void changeDirection(Direction newDirection);
+    void changeDirection(Direction newDirection);
     int getX();
     int getY();
+    List<Position.Coordinate> getPath();
 }
