@@ -1,12 +1,12 @@
 package cz.muni.fi.swq.refactor.tron;
 
-//import cz.muni.fi.swq.refactor.tron.engine.PositionTrait;
+import cz.muni.fi.swq.refactor.tron.engine.CollisionDetectorContract;
 
 import java.util.List;
 
-public class CollisionDetector {
+public class CollisionDetector implements CollisionDetectorContract {
 
-    static boolean detect(List<Player> players) {
+    public boolean detect(List<Player> players) {
 
         return selfCollision(players) || crossCollision(players);
     }

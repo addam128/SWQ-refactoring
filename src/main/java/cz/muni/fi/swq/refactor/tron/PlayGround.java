@@ -1,5 +1,7 @@
 package cz.muni.fi.swq.refactor.tron;
 
+import cz.muni.fi.swq.refactor.tron.engine.CollisionDetectorContract;
+
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Window;
@@ -16,6 +18,8 @@ public class PlayGround extends Core implements KeyListener, MouseListener,
 		MouseMotionListener {
 
 	int moveAmount = 5;
+
+	private static final CollisionDetectorContract COLLISION_DETECTOR = new CollisionDetector();
 
 	List<Player> players;
 	List<Color> colors;
@@ -48,7 +52,7 @@ public class PlayGround extends Core implements KeyListener, MouseListener,
 			player.move(moveAmount);
 		}
 
-		if (CollisionDetector.detect(players)) {
+		if (COLLISION_DETECTOR.detect(players)) {
 			System.exit(0);
 		}
 		g.setColor(Color.BLACK);
