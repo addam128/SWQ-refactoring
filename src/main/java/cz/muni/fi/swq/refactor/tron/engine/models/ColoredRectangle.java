@@ -1,4 +1,4 @@
-package cz.muni.fi.swq.refactor.tron.engine;
+package cz.muni.fi.swq.refactor.tron.engine.models;
 
 import java.awt.Color;
 

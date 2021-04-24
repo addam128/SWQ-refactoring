@@ -1,21 +1,11 @@
 package cz.muni.fi.swq.refactor.tron;
 
-import cz.muni.fi.swq.refactor.tron.engine.CollisionDetectorContract;
-import cz.muni.fi.swq.refactor.tron.engine.ColoredRectangle;
-import cz.muni.fi.swq.refactor.tron.engine.Direction;
-import cz.muni.fi.swq.refactor.tron.engine.PlayGroundContract;
-import cz.muni.fi.swq.refactor.tron.engine.PlayerTrait;
-import cz.muni.fi.swq.refactor.tron.engine.listeners.ArrowsListener;
-import cz.muni.fi.swq.refactor.tron.engine.listeners.WASDListener;
+import cz.muni.fi.swq.refactor.tron.engine.models.CollisionDetectorContract;
+import cz.muni.fi.swq.refactor.tron.engine.models.ColoredRectangle;
+import cz.muni.fi.swq.refactor.tron.engine.models.PlayGroundContract;
+import cz.muni.fi.swq.refactor.tron.engine.models.PlayerTrait;
 
 import java.awt.Color;
-import java.awt.Graphics2D;
-import java.awt.Window;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 import java.util.List;
 

@@ -1,6 +1,6 @@
-package cz.muni.fi.swq.refactor.tron.engine;
+package cz.muni.fi.swq.refactor.tron.engine.models;
 
-import cz.muni.fi.swq.refactor.tron.Player;
+import cz.muni.fi.swq.refactor.tron.engine.models.PlayerTrait;
 
 import java.util.List;
 

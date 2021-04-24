@@ -1,7 +1,7 @@
 package cz.muni.fi.swq.refactor.tron;
 
-import cz.muni.fi.swq.refactor.tron.engine.Direction;
-import cz.muni.fi.swq.refactor.tron.engine.PositionTrait;
+import cz.muni.fi.swq.refactor.tron.engine.models.Direction;
+import cz.muni.fi.swq.refactor.tron.engine.models.PositionTrait;
 
 /**
  * @author Andrej Tomci

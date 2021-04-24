@@ -1,7 +1,7 @@
 package cz.muni.fi.swq.refactor.tron;
 
-import cz.muni.fi.swq.refactor.tron.engine.CollisionDetectorContract;
-import cz.muni.fi.swq.refactor.tron.engine.PlayerTrait;
+import cz.muni.fi.swq.refactor.tron.engine.models.CollisionDetectorContract;
+import cz.muni.fi.swq.refactor.tron.engine.models.PlayerTrait;
 
 import java.util.List;
 

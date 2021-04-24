@@ -1,7 +1,7 @@
 package cz.muni.fi.swq.refactor.tron;
 
-import cz.muni.fi.swq.refactor.tron.engine.Direction;
-import cz.muni.fi.swq.refactor.tron.engine.PlayerTrait;
+import cz.muni.fi.swq.refactor.tron.engine.models.Direction;
+import cz.muni.fi.swq.refactor.tron.engine.models.PlayerTrait;
 
 public class Player extends PlayerTrait {
     Player( int startX,

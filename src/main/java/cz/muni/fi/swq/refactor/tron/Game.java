@@ -1,9 +1,9 @@
 package cz.muni.fi.swq.refactor.tron;
 
-import cz.muni.fi.swq.refactor.tron.engine.Direction;
+import cz.muni.fi.swq.refactor.tron.engine.models.Direction;
 import cz.muni.fi.swq.refactor.tron.engine.Engine;
-import cz.muni.fi.swq.refactor.tron.engine.PlayGroundContract;
-import cz.muni.fi.swq.refactor.tron.engine.PlayerTrait;
+import cz.muni.fi.swq.refactor.tron.engine.models.PlayGroundContract;
+import cz.muni.fi.swq.refactor.tron.engine.models.PlayerTrait;
 import cz.muni.fi.swq.refactor.tron.engine.listeners.ArrowsListener;
 import cz.muni.fi.swq.refactor.tron.engine.listeners.WASDListener;
 

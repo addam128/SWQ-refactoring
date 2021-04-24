@@ -1,15 +1,12 @@
 package cz.muni.fi.swq.refactor.tron.engine;
 
-import cz.muni.fi.swq.refactor.tron.Player;
 import cz.muni.fi.swq.refactor.tron.ScreenManager;
-import cz.muni.fi.swq.refactor.tron.engine.listeners.ArrowsListener;
-import cz.muni.fi.swq.refactor.tron.engine.listeners.WASDListener;
+import cz.muni.fi.swq.refactor.tron.engine.models.ColoredRectangle;
+import cz.muni.fi.swq.refactor.tron.engine.models.PlayGroundContract;
 
 import java.awt.*;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
-
-import java.util.List;
 
 /**
  * @author Andrej Tomci
