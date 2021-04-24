@@ -5,7 +5,7 @@ import cz.muni.fi.swq.refactor.tron.Position;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class PlayerTrait {
+public abstract class PlayerTrait implements PlayerContract {
 
     protected final PositionTrait position;
     protected Direction direction;
