@@ -1,7 +1,5 @@
 package cz.muni.fi.swq.refactor.tron.engine;
 
-import cz.muni.fi.swq.refactor.tron.Direction;
-
 public abstract class PositionTrait {
 
     public static class Coordinate {

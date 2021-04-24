@@ -1,6 +1,5 @@
 package cz.muni.fi.swq.refactor.tron.engine;
 
-import cz.muni.fi.swq.refactor.tron.Direction;
 import cz.muni.fi.swq.refactor.tron.Position;
 
 import java.util.ArrayList;

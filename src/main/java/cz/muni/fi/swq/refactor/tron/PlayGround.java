@@ -1,6 +1,7 @@
 package cz.muni.fi.swq.refactor.tron;
 
 import cz.muni.fi.swq.refactor.tron.engine.CollisionDetectorContract;
+import cz.muni.fi.swq.refactor.tron.engine.Direction;
 
 import java.awt.Color;
 import java.awt.Graphics2D;

@@ -1,5 +1,6 @@
 package cz.muni.fi.swq.refactor.tron;
 
+import cz.muni.fi.swq.refactor.tron.engine.Direction;
 import cz.muni.fi.swq.refactor.tron.engine.PositionTrait;
 
 /**

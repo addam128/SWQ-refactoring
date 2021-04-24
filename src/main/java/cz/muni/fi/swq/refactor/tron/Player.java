@@ -1,10 +1,7 @@
 package cz.muni.fi.swq.refactor.tron;
 
-import cz.muni.fi.swq.refactor.tron.Position;
+import cz.muni.fi.swq.refactor.tron.engine.Direction;
 import cz.muni.fi.swq.refactor.tron.engine.PlayerTrait;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class Player extends PlayerTrait {
     Player( int startX,
