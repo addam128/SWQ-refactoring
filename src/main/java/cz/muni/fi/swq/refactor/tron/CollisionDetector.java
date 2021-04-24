@@ -1,5 +1,7 @@
 package cz.muni.fi.swq.refactor.tron;
 
+//import cz.muni.fi.swq.refactor.tron.engine.PositionTrait;
+
 import java.util.List;
 
 public class CollisionDetector {

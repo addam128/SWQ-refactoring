@@ -1,58 +1,16 @@
 package cz.muni.fi.swq.refactor.tron;
 
-public class Position {
+import cz.muni.fi.swq.refactor.tron.engine.PositionTrait;
 
-    public static class Coordinate {
-
-        private final int x;
-        private final int y;
-
-        public int getX() {
-            return x;
-        }
-
-        public int getY() {
-            return y;
-        }
-
-        public Coordinate(int startX, int startY) {
-            x = startX;
-            y = startY;
-        }
+/**
+ * @author Andrej Tomci
+ */
+public class Position extends PositionTrait {
+    public Position(int startX, int startY, int maxX, int maxY) {
+        super(startX, startY, maxX, maxY);
     }
 
-    private Coordinate coords;
-
-    private final int maxX;
-    private final int maxY;
-
-    public Position(
-            int startX,
-            int startY,
-            int maxX,
-            int maxY ){
-
-        coords = new Coordinate(startX, startY);
-        this.maxX = maxX;
-        this.maxY = maxY;
-    }
-
-    public int getX() {
-        return coords.getX();
-    }
-
-    public int getY() {
-        return coords.getY();
-    }
-
-    Coordinate change(int amount, Direction direction) {
-        Coordinate oldCoords = coords;
-        coords = computeNewCoords(amount, direction);
-        return oldCoords;
-    }
-
-    private Coordinate computeNewCoords(int amount, Direction direction) {
-
+    protected Coordinate computeNewCoords(int amount, Direction direction) {
         int newX = coords.getX();
         int newY = coords.getY();
 

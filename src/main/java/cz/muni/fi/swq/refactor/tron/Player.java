@@ -1,5 +1,7 @@
 package cz.muni.fi.swq.refactor.tron;
 
+import cz.muni.fi.swq.refactor.tron.Position;
+
 import java.util.ArrayList;
 import java.util.List;
 
