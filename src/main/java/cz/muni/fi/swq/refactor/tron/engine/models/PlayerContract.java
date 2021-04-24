@@ -1,7 +1,5 @@
 package cz.muni.fi.swq.refactor.tron.engine.models;
 
-import cz.muni.fi.swq.refactor.tron.Position;
-
 import java.util.List;
 
 /**
@@ -12,5 +10,5 @@ public interface PlayerContract {
     void changeDirection(Direction newDirection);
     int getX();
     int getY();
-    List<Position.Coordinate> getPath();
+    List<PositionTrait.Coordinate> getPath();
 }
