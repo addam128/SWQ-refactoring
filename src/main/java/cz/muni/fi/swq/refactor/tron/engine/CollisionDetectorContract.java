@@ -8,5 +8,5 @@ import java.util.List;
  * @author Andrej Tomci
  */
 public interface CollisionDetectorContract {
-    boolean detect(List<Player> playerList);
+    boolean detect(List<PlayerTrait> playerList);
 }

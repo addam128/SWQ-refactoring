@@ -10,4 +10,5 @@ import java.util.List;
 public interface PlayGroundContract {
     void gameTick();
     List<ColoredRectangle> getGraphicObjects();
+    void addPlayer(PlayerTrait player, Color color);
 }
