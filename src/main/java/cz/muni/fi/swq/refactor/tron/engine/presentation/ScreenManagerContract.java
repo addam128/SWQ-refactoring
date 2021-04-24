@@ -6,7 +6,7 @@ import java.awt.*;
  * @author Andrej Tomci
  */
 public interface ScreenManagerContract {
-    void setFullScreen(DisplayMode dm);
+    void setFullScreen();
     Window getFullScreenWindow();
     void restoreScreen();
     int getWidth();

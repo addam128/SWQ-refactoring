@@ -6,6 +6,7 @@ import cz.muni.fi.swq.refactor.tron.engine.models.PlayGroundContract;
 import cz.muni.fi.swq.refactor.tron.engine.models.PlayerTrait;
 import cz.muni.fi.swq.refactor.tron.engine.listeners.ArrowsListener;
 import cz.muni.fi.swq.refactor.tron.engine.listeners.WASDListener;
+import cz.muni.fi.swq.refactor.tron.engine.presentation.ScreenManagerDefault;
 
 import java.awt.*;
 
@@ -24,7 +25,7 @@ public class Game {
 
     private void init() {
         this.playground = new PlayGround();
-        this.engine = new Engine(playground);
+        this.engine = new Engine(playground, new ScreenManagerDefault());
 
         PlayerTrait player1 = new Player(40,40, engine.getScreenWidth(), engine.getScreenHeight(), Direction.RIGHT);
         PlayerTrait player2 =  new Player(600, 440, engine.getScreenWidth(), engine.getScreenHeight(), Direction.LEFT);

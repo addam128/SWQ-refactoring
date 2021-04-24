@@ -1,6 +1,7 @@
 package cz.muni.fi.swq.refactor.tron.engine;
 
-import cz.muni.fi.swq.refactor.tron.engine.presentation.ScreenManager;
+import cz.muni.fi.swq.refactor.tron.engine.presentation.ScreenManagerContract;
+import cz.muni.fi.swq.refactor.tron.engine.presentation.ScreenManagerDefault;
 import cz.muni.fi.swq.refactor.tron.engine.models.ColoredRectangle;
 import cz.muni.fi.swq.refactor.tron.engine.models.PlayGroundContract;
 
@@ -13,28 +14,15 @@ import java.awt.image.BufferedImage;
  */
 public class Engine {
 
-    private static final DisplayMode modes[] =
-    {
-        //new DisplayMode(1920,1080,32,0),
-        new DisplayMode(1680,1050,32,0),
-        //new DisplayMode(1280,1024,32,0),
-        new DisplayMode(800,600,32,0),
-        new DisplayMode(800,600,24,0),
-        new DisplayMode(800,600,16,0),
-        new DisplayMode(640,480,32,0),
-        new DisplayMode(640,480,24,0),
-        new DisplayMode(640,480,16,0),
-    };
     private boolean running;
     private PlayGroundContract playground;
-    protected ScreenManager sm;
+    protected ScreenManagerContract sm;
 
-    public Engine(PlayGroundContract playground) {
+    public Engine(PlayGroundContract playground, ScreenManagerContract screenManager) {
         this.running = false;
         this.playground = playground;
-        sm = new ScreenManager();
-        DisplayMode dm = sm.findFirstCompatibaleMode(modes);
-        sm.setFullScreen(dm);
+        sm = screenManager;
+        sm.setFullScreen();
         Window w = sm.getFullScreenWindow();
         w.setFont(new Font("Arial",Font.PLAIN,20));
         w.setBackground(Color.WHITE);
