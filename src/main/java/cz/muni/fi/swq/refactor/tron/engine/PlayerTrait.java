@@ -22,7 +22,7 @@ public abstract class PlayerTrait {
         path.add(position.change(amount, direction));
     }
 
-    protected abstract void changeDirection(Direction newDirection);
+    public abstract void changeDirection(Direction newDirection);
 
     public List<Position.Coordinate> getPath() {
         return path;

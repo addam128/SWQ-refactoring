@@ -13,7 +13,7 @@ public class Player extends PlayerTrait {
         super(new Position(startX, startY, maxX, maxY), direction);
     }
 
-    protected void changeDirection(Direction newDirection) {
+    public void changeDirection(Direction newDirection) {
 
         if (direction == Direction.UP && newDirection == Direction.DOWN ||
                 newDirection == Direction.UP && direction == Direction.DOWN) {

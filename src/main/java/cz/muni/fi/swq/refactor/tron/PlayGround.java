@@ -2,6 +2,8 @@ package cz.muni.fi.swq.refactor.tron;
 
 import cz.muni.fi.swq.refactor.tron.engine.CollisionDetectorContract;
 import cz.muni.fi.swq.refactor.tron.engine.Direction;
+import cz.muni.fi.swq.refactor.tron.engine.listeners.ArrowsListener;
+import cz.muni.fi.swq.refactor.tron.engine.listeners.WASDListener;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -15,8 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class PlayGround extends Core implements KeyListener, MouseListener,
-		MouseMotionListener {
+public class PlayGround extends Core {
 
 	int moveAmount = 5;
 
@@ -28,19 +29,21 @@ public class PlayGround extends Core implements KeyListener, MouseListener,
 	public void init() {
 		super.init();
 
-		Window w = sm.getFullScreenWindow();
-		w.addKeyListener(this);
-		w.addMouseListener(this);
-		w.addMouseMotionListener(this);
-
 		players = new ArrayList<>();
 		colors = new ArrayList<>();
 
-		players.add(new Player(40,40, sm.getWidth(), sm.getHeight(), Direction.RIGHT));
-		players.add(new Player(600, 440, sm.getWidth(), sm.getHeight(), Direction.LEFT));
 
 		colors.add(Color.green);
 		colors.add(Color.red);
+		players.add(new Player(40,40, sm.getWidth(), sm.getHeight(), Direction.RIGHT));
+		players.add(new Player(600, 440, sm.getWidth(), sm.getHeight(), Direction.LEFT));
+
+		Window w = sm.getFullScreenWindow();
+		w.addKeyListener(new ArrowsListener(players.get(0)));
+		w.addKeyListener(new WASDListener(players.get(1)));
+//		w.addMouseListener(this);
+//		w.addMouseMotionListener(this);
+
 	}
 
 	public static void main(String[] args) {
@@ -64,67 +67,5 @@ public class PlayGround extends Core implements KeyListener, MouseListener,
 				g.fillRect(players.get(i).getPath().get(r).getX(), players.get(i).getPath().get(r).getY(), 10, 10);
 			}
 		}
-	}
-
-	// DOWN 2
-	// UP 0
-	// RIGHT 1
-	// LEFT 3
-
-	public void keyPressed(KeyEvent e) {
-		if (players.size() < 1) { return ;}
-		Player playerOne = players.get(0);
-		if (e.getKeyCode() == KeyEvent.VK_UP) {
-			playerOne.changeDirection(Direction.UP);
-		} else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-			playerOne.changeDirection(Direction.DOWN);
-		} else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-			playerOne.changeDirection(Direction.RIGHT);
-		} else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-			playerOne.changeDirection(Direction.LEFT);
-		}
-		if (players.size() < 2) {return;}
-		Player playerTwo = players.get(1);
-		if (e.getKeyCode() == KeyEvent.VK_W){
-			playerTwo.changeDirection(Direction.UP);
-		} else if (e.getKeyCode() == KeyEvent.VK_S) {
-			playerTwo.changeDirection(Direction.DOWN);
-		} else if (e.getKeyCode() == KeyEvent.VK_D) {
-			playerTwo.changeDirection(Direction.RIGHT);
-		} else if (e.getKeyCode() == KeyEvent.VK_A) {
-			playerTwo.changeDirection(Direction.LEFT);
-		}
-	}
-
-	public void keyReleased(KeyEvent e) {
-
-	}
-
-	public void keyTyped(KeyEvent arg0) {
-
-	}
-
-	public void mouseClicked(MouseEvent e) {
-
-	}
-
-	public void mouseEntered(MouseEvent arg0) {
-	}
-
-	public void mouseExited(MouseEvent arg0) {
-	}
-
-	public void mousePressed(MouseEvent e) {
-	}
-
-	public void mouseReleased(MouseEvent e) {
-	}
-
-	public void mouseDragged(MouseEvent e) {
-
-	}
-
-	public void mouseMoved(MouseEvent e) {
-
 	}
 }
