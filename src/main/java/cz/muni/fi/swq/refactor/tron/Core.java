@@ -1,5 +1,7 @@
 package cz.muni.fi.swq.refactor.tron;
 
+import cz.muni.fi.swq.refactor.tron.engine.presentation.ScreenManager;
+
 import java.awt.*;
 import java.awt.image.BufferedImage;
 

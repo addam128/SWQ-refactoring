@@ -1,6 +1,6 @@
 package cz.muni.fi.swq.refactor.tron.engine;
 
-import cz.muni.fi.swq.refactor.tron.ScreenManager;
+import cz.muni.fi.swq.refactor.tron.engine.presentation.ScreenManager;
 import cz.muni.fi.swq.refactor.tron.engine.models.ColoredRectangle;
 import cz.muni.fi.swq.refactor.tron.engine.models.PlayGroundContract;
 
