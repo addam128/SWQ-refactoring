@@ -1,31 +1,19 @@
 package cz.muni.fi.swq.refactor.tron;
 
-import java.util.ArrayList;
-import java.util.List;
+import cz.muni.fi.swq.refactor.tron.engine.models.Direction;
+import cz.muni.fi.swq.refactor.tron.engine.models.PlayerTrait;
 
-public class Player {
-
-    private final Position position;
-    private Direction direction;
-    private final List<Position.Coordinate> path;
-
-    Player(
-            int startX,
+public class Player extends PlayerTrait {
+    Player( int startX,
             int startY,
             int maxX,
             int maxY,
             Direction direction) {
 
-        position = new Position(startX, startY, maxX, maxY);
-        this.direction = direction;
-        path = new ArrayList<>();
+        super(new Position(startX, startY, maxX, maxY), direction);
     }
 
-    void move(int amount) {
-        path.add(position.change(amount, direction));
-    }
-
-    void changeDirection(Direction newDirection) {
+    public void changeDirection(Direction newDirection) {
 
         if (direction == Direction.UP && newDirection == Direction.DOWN ||
                 newDirection == Direction.UP && direction == Direction.DOWN) {
@@ -38,17 +26,4 @@ public class Player {
 
         direction = newDirection;
     }
-
-    List<Position.Coordinate> getPath() {
-        return path;
-    }
-
-    int getX() {
-        return position.getX();
-    }
-
-    int getY() {
-        return position.getY();
-    }
-
 }

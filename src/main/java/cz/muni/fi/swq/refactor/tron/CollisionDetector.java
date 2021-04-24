@@ -1,17 +1,20 @@
 package cz.muni.fi.swq.refactor.tron;
 
+import cz.muni.fi.swq.refactor.tron.engine.models.CollisionDetectorContract;
+import cz.muni.fi.swq.refactor.tron.engine.models.PlayerContract;
+
 import java.util.List;
 
-public class CollisionDetector {
+public class CollisionDetector implements CollisionDetectorContract {
 
-    static boolean detect(List<Player> players) {
+    public boolean detect(List<PlayerContract> players) {
 
         return selfCollision(players) || crossCollision(players);
     }
 
-    private static boolean selfCollision(List<Player> players) {
+    private static boolean selfCollision(List<PlayerContract> players) {
 
-        for (Player player : players) {
+        for (PlayerContract player : players) {
             for (Position.Coordinate coord : player.getPath()) {
 
                 if (player.getX() == coord.getX() && player.getY() == coord.getY()) {
@@ -22,10 +25,10 @@ public class CollisionDetector {
         return false;
     }
 
-    private static boolean crossCollision(List<Player> players) {
+    private static boolean crossCollision(List<PlayerContract> players) {
 
-        for (Player playerOne: players) {
-            for (Player playerTwo: players) {
+        for (PlayerContract playerOne: players) {
+            for (PlayerContract playerTwo: players) {
 
                 if (playerOne == playerTwo) { continue; } // reference comparison needed here
 
