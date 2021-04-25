@@ -2,8 +2,8 @@ package cz.muni.fi.swq.refactor.tron.engine.models;
 
 import java.awt.Color;
 
-/**
- * @author Andrej Tomci
+/** Represents 2D rectangle with color
+ *
  */
 public class ColoredRectangle {
     private final Color color;

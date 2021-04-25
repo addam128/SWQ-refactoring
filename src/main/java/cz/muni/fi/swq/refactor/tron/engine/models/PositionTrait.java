@@ -1,5 +1,8 @@
 package cz.muni.fi.swq.refactor.tron.engine.models;
 
+/** Abstract class that partially solves Position and Coordinate topics, you can base your class representing Position and Coordinate on this class
+ *
+ */
 public abstract class PositionTrait {
 
     public static class Coordinate {

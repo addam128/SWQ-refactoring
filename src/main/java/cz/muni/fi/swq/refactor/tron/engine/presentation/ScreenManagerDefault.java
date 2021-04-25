@@ -7,6 +7,9 @@ import java.awt.image.BufferedImage;
 
 import javax.swing.JFrame;
 
+/** Class that takes care of screen management. You can directly use this class, or extend it if you need more specific functionality.
+ *
+ */
 public class ScreenManagerDefault implements ScreenManagerContract {
 
 	private static final DisplayMode modes[] =

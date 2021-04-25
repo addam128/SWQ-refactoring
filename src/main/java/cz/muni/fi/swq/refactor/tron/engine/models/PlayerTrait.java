@@ -3,6 +3,9 @@ package cz.muni.fi.swq.refactor.tron.engine.models;
 import java.util.ArrayList;
 import java.util.List;
 
+/** Abstract class partially implementing PlayerContract interface, you can extend this class to create your own Player representation
+ *
+ */
 public abstract class PlayerTrait implements PlayerContract {
 
     protected final PositionTrait position;

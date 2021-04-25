@@ -3,8 +3,8 @@ package cz.muni.fi.swq.refactor.tron.engine;
 import cz.muni.fi.swq.refactor.tron.engine.presentation.DrawerContract;
 import cz.muni.fi.swq.refactor.tron.engine.models.PlayGroundContract;
 
-/**
- * @author Andrej Tomci
+/** Middleware class that combines model and presentation layers and takes care of game loop.
+ *
  */
 public class Engine {
 

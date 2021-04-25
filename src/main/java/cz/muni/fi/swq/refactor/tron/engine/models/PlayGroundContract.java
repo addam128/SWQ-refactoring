@@ -6,8 +6,8 @@ import cz.muni.fi.swq.refactor.tron.engine.models.PlayerTrait;
 import java.awt.Color;
 import java.util.List;
 
-/**
- * @author Andrej Tomci
+/** Interface that defines what methods should playground classes implement
+ *
  */
 public interface PlayGroundContract {
     void gameTick();

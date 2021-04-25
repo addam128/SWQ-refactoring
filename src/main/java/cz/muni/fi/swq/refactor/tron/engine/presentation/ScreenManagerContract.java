@@ -2,8 +2,8 @@ package cz.muni.fi.swq.refactor.tron.engine.presentation;
 
 import java.awt.*;
 
-/**
- * @author Andrej Tomci
+/** Interface that defines necessary methods for screen management classes
+ *
  */
 public interface ScreenManagerContract {
     void setFullScreen();
