@@ -32,7 +32,7 @@ public class ScreenManagerDefault implements ScreenManagerContract {
 		return vc.getDisplayModes();
 	}
 	
-	public DisplayMode findFirstCompatibaleMode(){
+	public DisplayMode findFirstCompatibleMode(){
 		
 		DisplayMode goodModes[] = vc.getDisplayModes();
 		for(int x = 0; x<modes.length;x++){
@@ -63,7 +63,7 @@ public class ScreenManagerDefault implements ScreenManagerContract {
 	}
 	
 	public void setFullScreen(){
-		DisplayMode dm = findFirstCompatibaleMode();
+		DisplayMode dm = findFirstCompatibleMode();
 		JFrame f = new JFrame();
 		f.setUndecorated(true);
 		f.setIgnoreRepaint(true);

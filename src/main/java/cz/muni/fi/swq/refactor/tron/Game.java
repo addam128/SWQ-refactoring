@@ -6,7 +6,11 @@ import cz.muni.fi.swq.refactor.tron.engine.models.PlayGroundContract;
 import cz.muni.fi.swq.refactor.tron.engine.models.PlayerTrait;
 import cz.muni.fi.swq.refactor.tron.engine.listeners.ArrowsListener;
 import cz.muni.fi.swq.refactor.tron.engine.listeners.WASDListener;
+import cz.muni.fi.swq.refactor.tron.engine.presentation.DrawerContract;
 import cz.muni.fi.swq.refactor.tron.engine.presentation.ScreenManagerDefault;
+import cz.muni.fi.swq.refactor.tron.model.PlayGround;
+import cz.muni.fi.swq.refactor.tron.model.Player;
+import cz.muni.fi.swq.refactor.tron.presentation.Drawer;
 
 import java.awt.*;
 
@@ -25,16 +29,17 @@ public class Game {
 
     private void init() {
         this.playground = new PlayGround();
-        this.engine = new Engine(playground, new ScreenManagerDefault());
+        DrawerContract drawer = new Drawer(new ScreenManagerDefault());
+        this.engine = new Engine(playground, drawer);
 
-        PlayerTrait player1 = new Player(40,40, engine.getScreenWidth(), engine.getScreenHeight(), Direction.RIGHT);
-        PlayerTrait player2 =  new Player(600, 440, engine.getScreenWidth(), engine.getScreenHeight(), Direction.LEFT);
+        PlayerTrait player1 = new Player(40,40, drawer.getScreenWidth(), drawer.getScreenHeight(), Direction.RIGHT);
+        PlayerTrait player2 =  new Player(600, 440, drawer.getScreenWidth(), drawer.getScreenHeight(), Direction.LEFT);
 
         playground.addPlayer(player1, Color.green);
         playground.addPlayer(player2, Color.red);
 
-        engine.addKeyListener(new ArrowsListener(player1));
-        engine.addKeyListener(new WASDListener(player2));
+        drawer.addKeyListener(new ArrowsListener(player1));
+        drawer.addKeyListener(new WASDListener(player2));
     }
 
     private void run() {
