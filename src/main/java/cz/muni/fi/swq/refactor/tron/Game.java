@@ -25,7 +25,7 @@ public class Game {
 
     private void init() {
         this.playground = new PlayGround();
-        this.engine = new Engine(playground, new ScreenManagerDefault());
+        this.engine = new Engine(playground, new Drawer(new ScreenManagerDefault()));
 
         PlayerTrait player1 = new Player(40,40, engine.getScreenWidth(), engine.getScreenHeight(), Direction.RIGHT);
         PlayerTrait player2 =  new Player(600, 440, engine.getScreenWidth(), engine.getScreenHeight(), Direction.LEFT);
