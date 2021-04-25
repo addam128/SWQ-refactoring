@@ -41,18 +41,7 @@ public class Engine {
     public void init(){
     }
 
-    public void addKeyListener(KeyListener listener) {
-        drawer.addKeyListener(listener);
-    }
     // TODO: Mouse, mouse motion listeners
-
-    public int getScreenWidth() {
-        return drawer.getWidth();
-    }
-
-    public int getScreenHeight() {
-        return drawer.getHeight();
-    }
 
     public void gameLoop(){
         long startTime = System.currentTimeMillis();

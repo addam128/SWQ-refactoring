@@ -51,12 +51,12 @@ public class Drawer implements DrawerContract {
     }
 
     @Override
-    public int getWidth() {
+    public int getScreenWidth() {
         return screenManager.getWidth();
     }
 
     @Override
-    public int getHeight() {
+    public int getScreenHeight() {
         return screenManager.getHeight();
     }
 }

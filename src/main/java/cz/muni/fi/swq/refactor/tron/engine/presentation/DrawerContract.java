@@ -12,6 +12,6 @@ public interface DrawerContract {
     void draw(List<ColoredRectangle> objects);
     void restoreScreen();
     void addKeyListener(KeyListener listener);
-    int getWidth();
-    int getHeight();
+    int getScreenWidth();
+    int getScreenHeight();
 }
