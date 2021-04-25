@@ -8,6 +8,9 @@ import cz.muni.fi.swq.refactor.tron.engine.listeners.ArrowsListener;
 import cz.muni.fi.swq.refactor.tron.engine.listeners.WASDListener;
 import cz.muni.fi.swq.refactor.tron.engine.presentation.DrawerContract;
 import cz.muni.fi.swq.refactor.tron.engine.presentation.ScreenManagerDefault;
+import cz.muni.fi.swq.refactor.tron.model.PlayGround;
+import cz.muni.fi.swq.refactor.tron.model.Player;
+import cz.muni.fi.swq.refactor.tron.presentation.Drawer;
 
 import java.awt.*;
 

@@ -1,4 +1,4 @@
-package cz.muni.fi.swq.refactor.tron;
+package cz.muni.fi.swq.refactor.tron.model;
 
 import cz.muni.fi.swq.refactor.tron.engine.models.Direction;
 import cz.muni.fi.swq.refactor.tron.engine.models.PositionTrait;

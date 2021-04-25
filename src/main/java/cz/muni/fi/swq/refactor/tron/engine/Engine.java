@@ -1,15 +1,7 @@
 package cz.muni.fi.swq.refactor.tron.engine;
 
-import cz.muni.fi.swq.refactor.tron.Drawer;
 import cz.muni.fi.swq.refactor.tron.engine.presentation.DrawerContract;
-import cz.muni.fi.swq.refactor.tron.engine.presentation.ScreenManagerContract;
-import cz.muni.fi.swq.refactor.tron.engine.presentation.ScreenManagerDefault;
-import cz.muni.fi.swq.refactor.tron.engine.models.ColoredRectangle;
 import cz.muni.fi.swq.refactor.tron.engine.models.PlayGroundContract;
-
-import java.awt.*;
-import java.awt.event.KeyListener;
-import java.awt.image.BufferedImage;
 
 /**
  * @author Andrej Tomci
