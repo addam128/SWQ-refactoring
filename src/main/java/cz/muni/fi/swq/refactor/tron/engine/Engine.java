@@ -3,7 +3,7 @@ package cz.muni.fi.swq.refactor.tron.engine;
 import cz.muni.fi.swq.refactor.tron.engine.presentation.DrawerContract;
 import cz.muni.fi.swq.refactor.tron.engine.models.PlayGroundContract;
 
-/** Middleware class that combines model and presentation layers and takes care of game loop.
+/** Middleware class that connects model and presentation layers and takes care of game loop.
  *
  */
 public class Engine {
@@ -21,12 +21,9 @@ public class Engine {
 
     public void run() {
 
-        try {
-            running = true;
-            gameLoop();
-        } finally {
-            drawer.restoreScreen();
-        }
+        running = true;
+        gameLoop();
+        drawer.restoreScreen();
     }
 
 
