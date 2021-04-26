@@ -1,6 +1,7 @@
 package cz.muni.fi.swq.refactor.tron.engine.presentation;
 
-import java.awt.*;
+import java.awt.Graphics2D;
+import java.awt.Window;
 
 /** Interface that defines necessary methods
  *  for screen management classes

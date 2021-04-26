@@ -1,11 +1,13 @@
 package cz.muni.fi.swq.refactor.tron.engine.presentation;
 
 
-import java.awt.*;
-import java.awt.image.BufferStrategy;
-import java.awt.image.BufferedImage;
-
 import javax.swing.JFrame;
+import java.awt.DisplayMode;
+import java.awt.Graphics2D;
+import java.awt.GraphicsDevice;
+import java.awt.GraphicsEnvironment;
+import java.awt.Window;
+import java.awt.image.BufferStrategy;
 
 /** Class that takes care of screen management.
  * You can directly use this class, or extend if needed.
