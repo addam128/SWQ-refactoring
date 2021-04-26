@@ -9,38 +9,41 @@ import cz.muni.fi.swq.refactor.tron.engine.models.PlayGroundContract;
 public class Engine {
 
     private boolean running;
-    private PlayGroundContract playground;
-    private DrawerContract drawer;
+    private final PlayGroundContract playground;
+    private final DrawerContract drawer;
 
     public Engine(PlayGroundContract playground, DrawerContract drawer) {
+
         this.running = false;
         this.playground = playground;
         this.drawer = drawer;
-        running = true;
     }
+
     public void stop(){
         running = false;
     }
 
-    public void run(){
-        try{
+    public void run() {
+
+        try {
+            running = true;
             gameLoop();
-        }finally{
+        } finally {
             drawer.restoreScreen();
         }
     }
 
     public void init(){
+        running = true;
     }
 
-    // TODO: Mouse, mouse motion listeners
 
     public void gameLoop(){
-        long startTime = System.currentTimeMillis();
-        long cumTime = startTime;
+
+        long cumTime = System.currentTimeMillis();
 
         while (running){
-            long timePassed = System.currentTimeMillis()-cumTime;
+            long timePassed = System.currentTimeMillis() - cumTime;
             cumTime+= timePassed;
             update(timePassed);
             playground.gameTick();
@@ -48,7 +51,7 @@ public class Engine {
 
             try{
                 Thread.sleep(20);
-            }catch(Exception ex){}
+            } catch(Exception ignored){}
         }
     }
 
