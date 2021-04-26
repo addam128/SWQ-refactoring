@@ -3,8 +3,10 @@ package cz.muni.fi.swq.refactor.tron.engine.models;
 import java.util.ArrayList;
 import java.util.List;
 
-/** Abstract class partially implementing PlayerContract interface, you can extend this class to create your own Player representation
+/** Abstract class partially implementing PlayerContract interface,
+ *  you can extend this class to create your own Player representation.
  *
+ * If you need more specific behaviour implement the PlayerContract Interface.
  */
 public abstract class PlayerTrait implements PlayerContract {
 
@@ -23,6 +25,9 @@ public abstract class PlayerTrait implements PlayerContract {
         path.add(position.change(amount, direction));
     }
 
+    /*
+     * Here implement reaction to direction change events
+     */
     public abstract void changeDirection(Direction newDirection);
 
     public List<PositionTrait.Coordinate> getPath() {
