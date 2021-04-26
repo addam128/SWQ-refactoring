@@ -7,12 +7,15 @@ import java.awt.image.BufferedImage;
 
 import javax.swing.JFrame;
 
-/** Class that takes care of screen management. You can directly use this class, or extend it if you need more specific functionality.
+/** Class that takes care of screen management.
+ * You can directly use this class, or extend if needed.
  *
+ * For unique screen managers, you should implement your own
+ * based on ScreenManagerContract.
  */
 public class ScreenManagerDefault implements ScreenManagerContract {
 
-	private static final DisplayMode modes[] =
+	private static final DisplayMode[] modes =
 			{
 					//new DisplayMode(1920,1080,32,0),
 					new DisplayMode(1680,1050,32,0),
@@ -24,20 +27,21 @@ public class ScreenManagerDefault implements ScreenManagerContract {
 					new DisplayMode(640,480,24,0),
 					new DisplayMode(640,480,16,0),
 			};
-	private GraphicsDevice vc;
+	private final GraphicsDevice graphicsDevice;
 
 	public ScreenManagerDefault(){
+
 		GraphicsEnvironment e = GraphicsEnvironment.getLocalGraphicsEnvironment();
-		vc = e.getDefaultScreenDevice();
+		graphicsDevice = e.getDefaultScreenDevice();
 	}
 	
 	public DisplayMode[] getCompatibleDisplayModes(){
-		return vc.getDisplayModes();
+		return graphicsDevice.getDisplayModes();
 	}
 	
 	public DisplayMode findFirstCompatibleMode(){
 		
-		DisplayMode goodModes[] = vc.getDisplayModes();
+		DisplayMode[] goodModes = graphicsDevice.getDisplayModes();
 		for(int x = 0; x<modes.length;x++){
 			for(int y = 0;y<goodModes.length;y++){
 				if(displayModesMatch(modes[x],goodModes[y])){
@@ -49,7 +53,7 @@ public class ScreenManagerDefault implements ScreenManagerContract {
 	}
 	
 	public DisplayMode getCurrentDM(){
-		return vc.getDisplayMode();
+		return graphicsDevice.getDisplayMode();
 	}
 	
 	public boolean displayModesMatch(DisplayMode m1, DisplayMode m2){
@@ -71,18 +75,18 @@ public class ScreenManagerDefault implements ScreenManagerContract {
 		f.setUndecorated(true);
 		f.setIgnoreRepaint(true);
 		f.setResizable(false);
-		vc.setFullScreenWindow(f);
+		graphicsDevice.setFullScreenWindow(f);
 		
-		if(dm != null && vc.isDisplayChangeSupported()){
+		if(dm != null && graphicsDevice.isDisplayChangeSupported()){
 			try{
-				vc.setDisplayMode(dm);
+				graphicsDevice.setDisplayMode(dm);
 			}catch(Exception ex){}
 			f.createBufferStrategy(2);
 		}
 	}
 	
 	public Graphics2D getGraphics(){
-		Window w = vc.getFullScreenWindow();
+		Window w = graphicsDevice.getFullScreenWindow();
 		if(w != null){
 			BufferStrategy bs = w.getBufferStrategy();
 			return (Graphics2D)bs.getDrawGraphics();
@@ -93,7 +97,7 @@ public class ScreenManagerDefault implements ScreenManagerContract {
 	}
 	
 	public void update(){
-		Window w = vc.getFullScreenWindow();
+		Window w = graphicsDevice.getFullScreenWindow();
 		if(w != null){
 			BufferStrategy bs = w.getBufferStrategy();
 			if(!bs.contentsLost()){
@@ -103,11 +107,11 @@ public class ScreenManagerDefault implements ScreenManagerContract {
 	}
 	
 	public Window getFullScreenWindow(){
-		return vc.getFullScreenWindow();
+		return graphicsDevice.getFullScreenWindow();
 	}
 	
 	public int getWidth(){
-		Window w = vc.getFullScreenWindow();
+		Window w = graphicsDevice.getFullScreenWindow();
 		if(w != null){
 			return w.getWidth();
 		}else{
@@ -116,7 +120,7 @@ public class ScreenManagerDefault implements ScreenManagerContract {
 	}
 	
 	public int getHeight(){
-		Window w = vc.getFullScreenWindow();
+		Window w = graphicsDevice.getFullScreenWindow();
 		if(w != null){
 			return w.getHeight();
 		}else{
@@ -125,15 +129,15 @@ public class ScreenManagerDefault implements ScreenManagerContract {
 	}
 	
 	public void restoreScreen(){
-		Window w = vc.getFullScreenWindow();
+		Window w = graphicsDevice.getFullScreenWindow();
 		if(w != null){
 			w.dispose();
 		}
-		vc.setFullScreenWindow(null);
+		graphicsDevice.setFullScreenWindow(null);
 	}
 	
 	public BufferedImage createCompatibaleimage(int w, int h, int t){
-			Window win = vc.getFullScreenWindow();
+			Window win = graphicsDevice.getFullScreenWindow();
 			if(win != null){
 				GraphicsConfiguration gc = win.getGraphicsConfiguration();
 				return gc.createCompatibleImage(w,h,t);
