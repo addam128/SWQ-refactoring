@@ -72,15 +72,21 @@ public class ScreenManagerDefault implements ScreenManagerContract {
 				modeTwo.getRefreshRate() == DisplayMode.REFRESH_RATE_UNKNOWN ||
 				modeOne.getRefreshRate() == modeTwo.getRefreshRate();
 	}
+
+	private JFrame createFrame() {
+		JFrame frame = new JFrame();
+		frame.setUndecorated(true);
+		frame.setIgnoreRepaint(true);
+		frame.setResizable(false);
+
+		return frame;
+	}
 	
 	public void setFullScreen() {
 
 		DisplayMode dm = findFirstCompatibleMode();
-		JFrame f = new JFrame();
-		f.setUndecorated(true);
-		f.setIgnoreRepaint(true);
-		f.setResizable(false);
-		graphicsDevice.setFullScreenWindow(f);
+
+		graphicsDevice.setFullScreenWindow(createFrame());
 		
 		if(dm != null && graphicsDevice.isDisplayChangeSupported()) {
 
