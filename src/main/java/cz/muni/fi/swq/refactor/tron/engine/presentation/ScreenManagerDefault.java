@@ -34,11 +34,7 @@ public class ScreenManagerDefault implements ScreenManagerContract {
 		GraphicsEnvironment environment = GraphicsEnvironment.getLocalGraphicsEnvironment();
 		graphicsDevice = environment.getDefaultScreenDevice();
 	}
-	
-	public DisplayMode[] getCompatibleDisplayModes(){
-		return graphicsDevice.getDisplayModes();
-	}
-	
+
 	public DisplayMode findFirstCompatibleMode() {
 		
 		DisplayMode[] goodModes = graphicsDevice.getDisplayModes();
@@ -51,11 +47,7 @@ public class ScreenManagerDefault implements ScreenManagerContract {
 		}
 		return null;
 	}
-	
-	public DisplayMode getCurrentDM(){
-		return graphicsDevice.getDisplayMode();
-	}
-	
+
 	public boolean displayModesMatch(DisplayMode modeOne, DisplayMode modeTwo) {
 
 		if (modeOne.getWidth() != modeTwo.getWidth() || modeOne.getHeight() != modeTwo.getHeight()) {
@@ -154,17 +146,5 @@ public class ScreenManagerDefault implements ScreenManagerContract {
 		}
 		graphicsDevice.setFullScreenWindow(null);
 	}
-	
-	public BufferedImage createCompatibaleimage(int w, int h, int t) {
 
-			Window win = graphicsDevice.getFullScreenWindow();
-
-			if (win != null) {
-				GraphicsConfiguration gc = win.getGraphicsConfiguration();
-				return gc.createCompatibleImage(w,h,t);
-			}
-			return null;
-		
-		}
-	
 }
