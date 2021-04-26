@@ -12,19 +12,32 @@ import java.awt.image.BufferedImage;
 import java.util.List;
 
 /**
- * @author Andrej Tomci
+ * Implementation of DrawerContract for Tron.
  */
 public class Drawer implements DrawerContract {
-    private ScreenManagerContract screenManager;
+
+    private final ScreenManagerContract screenManager;
 
     public Drawer(ScreenManagerContract screenManager) {
+
         this.screenManager = screenManager;
         screenManager.setFullScreen();
+
         Window w = screenManager.getFullScreenWindow();
         w.setFont(new Font("Arial",Font.PLAIN,20));
         w.setBackground(Color.WHITE);
         w.setForeground(Color.RED);
         w.setCursor(w.getToolkit().createCustomCursor(new BufferedImage(3, 3, BufferedImage.TYPE_INT_ARGB), new Point(0, 0),"null"));
+    }
+
+    private void setupWindow() {
+
+        Window w = screenManager.getFullScreenWindow();
+        w.setFont(new Font("Arial",Font.PLAIN,20));
+        w.setBackground(Color.WHITE);
+        w.setForeground(Color.RED);
+        w.setCursor(w.getToolkit().createCustomCursor(
+                new BufferedImage(3, 3, BufferedImage.TYPE_INT_ARGB), new Point(0, 0),"null"));
     }
 
     @Override
