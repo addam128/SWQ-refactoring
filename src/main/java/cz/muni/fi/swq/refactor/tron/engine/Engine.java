@@ -43,8 +43,7 @@ public class Engine {
         long cumTime = System.currentTimeMillis();
 
         while (running) {
-            long timePassed = System.currentTimeMillis() - cumTime;
-            cumTime+= timePassed;
+            cumTime = System.currentTimeMillis();
             playground.gameTick();
             drawer.draw(playground.getGraphicObjects());
 
