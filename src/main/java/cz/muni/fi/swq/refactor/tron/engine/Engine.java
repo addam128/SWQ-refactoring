@@ -40,10 +40,8 @@ public class Engine {
 
     public void gameLoop() {
 
-        long cumTime = System.currentTimeMillis();
-
         while (running) {
-            cumTime = System.currentTimeMillis();
+
             playground.gameTick();
             drawer.draw(playground.getGraphicObjects());
 
