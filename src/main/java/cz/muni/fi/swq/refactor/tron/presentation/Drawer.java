@@ -23,36 +23,32 @@ public class Drawer implements DrawerContract {
         this.screenManager = screenManager;
         screenManager.setFullScreen();
 
-        Window w = screenManager.getFullScreenWindow();
-        w.setFont(new Font("Arial",Font.PLAIN,20));
-        w.setBackground(Color.WHITE);
-        w.setForeground(Color.RED);
-        w.setCursor(w.getToolkit().createCustomCursor(new BufferedImage(3, 3, BufferedImage.TYPE_INT_ARGB), new Point(0, 0),"null"));
+        setupWindow();
     }
 
     private void setupWindow() {
 
-        Window w = screenManager.getFullScreenWindow();
-        w.setFont(new Font("Arial",Font.PLAIN,20));
-        w.setBackground(Color.WHITE);
-        w.setForeground(Color.RED);
-        w.setCursor(w.getToolkit().createCustomCursor(
+        Window window = screenManager.getFullScreenWindow();
+        window.setFont(new Font("Arial",Font.PLAIN,20));
+        window.setBackground(Color.WHITE);
+        window.setForeground(Color.RED);
+        window.setCursor(window.getToolkit().createCustomCursor(
                 new BufferedImage(3, 3, BufferedImage.TYPE_INT_ARGB), new Point(0, 0),"null"));
     }
 
     @Override
     public void draw(List<ColoredRectangle> objects) {
 
-        Graphics2D g = screenManager.getGraphics();
-        g.setColor(Color.BLACK);
-        g.fillRect(0, 0, screenManager.getWidth(), screenManager.getHeight());
+        Graphics2D graphics = screenManager.getGraphics();
+        graphics.setColor(Color.BLACK);
+        graphics.fillRect(0, 0, screenManager.getWidth(), screenManager.getHeight());
 
         for (ColoredRectangle rectangle: objects) {
-            g.setColor(rectangle.getColor());
-            g.fillRect(rectangle.getStartX(), rectangle.getStartY(), rectangle.getWidth(), rectangle.getHeight());
+            graphics.setColor(rectangle.getColor());
+            graphics.fillRect(rectangle.getStartX(), rectangle.getStartY(), rectangle.getWidth(), rectangle.getHeight());
         }
 
-        g.dispose();
+        graphics.dispose();
         screenManager.update();
     }
 
@@ -64,22 +60,22 @@ public class Drawer implements DrawerContract {
     @Override
     public void addKeyListener(KeyListener listener) {
 
-        Window w = screenManager.getFullScreenWindow();
-        w.addKeyListener(listener);
+        Window window = screenManager.getFullScreenWindow();
+        window.addKeyListener(listener);
     }
 
     @Override
     public void addMouseListener(MouseListener listener) {
 
-        Window w = screenManager.getFullScreenWindow();
-        w.addMouseListener(listener);
+        Window window = screenManager.getFullScreenWindow();
+        window.addMouseListener(listener);
     }
 
     @Override
     public void addMouseWheelListener(MouseWheelListener listener) {
 
-        Window w = screenManager.getFullScreenWindow();
-        w.addMouseWheelListener(listener);
+        Window window = screenManager.getFullScreenWindow();
+        window.addMouseWheelListener(listener);
     }
 
     @Override
