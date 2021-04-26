@@ -7,8 +7,8 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseWheelListener;
 import java.util.List;
 
-/**
- * @author Andrej Tomci
+/** Interface that defines necessary methods for classes taking care of handling game screen and drawing objects
+ *
  */
 public interface DrawerContract {
     void draw(List<ColoredRectangle> objects);

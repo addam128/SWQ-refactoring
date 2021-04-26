@@ -6,8 +6,8 @@ import cz.muni.fi.swq.refactor.tron.engine.models.PlayerTrait;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-/**
- * @author Andrej Tomci
+/** Implementation of KeyListener that provides w-s-a-d controls.
+ *
  */
 public class WASDListener implements KeyListener {
     private final PlayerTrait player;

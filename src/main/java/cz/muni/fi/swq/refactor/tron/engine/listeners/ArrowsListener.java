@@ -6,8 +6,8 @@ import cz.muni.fi.swq.refactor.tron.engine.models.PlayerTrait;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-/**
- * @author Andrej Tomci
+/** Implementation of KeyListener that provides up-down-right-left arrows controls.
+ *
  */
 public class ArrowsListener implements KeyListener {
     private final PlayerTrait player;

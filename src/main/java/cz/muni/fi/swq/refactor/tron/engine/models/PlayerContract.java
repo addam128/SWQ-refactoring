@@ -2,8 +2,8 @@ package cz.muni.fi.swq.refactor.tron.engine.models;
 
 import java.util.List;
 
-/**
- * @author Andrej Tomci
+/** Interface that defines what methods should implement classes representing Player
+ *
  */
 public interface PlayerContract {
     void move(int amount);
