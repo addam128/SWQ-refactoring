@@ -6,6 +6,7 @@ import java.awt.Color;
  *
  */
 public class ColoredRectangle {
+
     private final Color color;
     private final int startX;
     private final int startY;

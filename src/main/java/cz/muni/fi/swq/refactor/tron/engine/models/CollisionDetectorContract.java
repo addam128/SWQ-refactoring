@@ -8,5 +8,6 @@ import java.util.List;
  *
  */
 public interface CollisionDetectorContract {
+
     boolean detect(List<PlayerContract> playerList);
 }
