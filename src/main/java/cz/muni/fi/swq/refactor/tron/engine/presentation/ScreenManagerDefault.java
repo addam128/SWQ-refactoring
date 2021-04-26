@@ -74,6 +74,7 @@ public class ScreenManagerDefault implements ScreenManagerContract {
 	}
 
 	private JFrame createFrame() {
+
 		JFrame frame = new JFrame();
 		frame.setUndecorated(true);
 		frame.setIgnoreRepaint(true);
@@ -84,18 +85,18 @@ public class ScreenManagerDefault implements ScreenManagerContract {
 	
 	public void setFullScreen() {
 
-		DisplayMode dm = findFirstCompatibleMode();
-
-		graphicsDevice.setFullScreenWindow(createFrame());
+		DisplayMode displayMode = findFirstCompatibleMode();
+		JFrame frame = createFrame();
+		graphicsDevice.setFullScreenWindow(frame);
 		
-		if(dm != null && graphicsDevice.isDisplayChangeSupported()) {
+		if(displayMode != null && graphicsDevice.isDisplayChangeSupported()) {
 
 			try {
-				graphicsDevice.setDisplayMode(dm);
+				graphicsDevice.setDisplayMode(displayMode);
 			} catch(Exception ignored) {
 
 			}
-			f.createBufferStrategy(2);
+			frame.createBufferStrategy(2);
 		}
 	}
 	
