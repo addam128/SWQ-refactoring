@@ -4,7 +4,7 @@ import cz.muni.fi.swq.refactor.tron.engine.models.Direction;
 import cz.muni.fi.swq.refactor.tron.engine.models.PositionTrait;
 
 /**
- * @author Andrej Tomci
+ * An implementation of position.
  */
 public class Position extends PositionTrait {
 

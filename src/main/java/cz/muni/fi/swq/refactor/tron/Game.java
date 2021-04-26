@@ -15,7 +15,7 @@ import cz.muni.fi.swq.refactor.tron.presentation.Drawer;
 import java.awt.*;
 
 /**
- * @author Andrej Tomci
+ * The game base class that sets up the engine and creates all needed constructs.
  */
 public class Game {
 

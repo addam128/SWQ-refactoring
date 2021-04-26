@@ -4,7 +4,6 @@ import cz.muni.fi.swq.refactor.tron.engine.models.CollisionDetectorContract;
 import cz.muni.fi.swq.refactor.tron.engine.models.ColoredRectangle;
 import cz.muni.fi.swq.refactor.tron.engine.models.PlayGroundContract;
 import cz.muni.fi.swq.refactor.tron.engine.models.PlayerContract;
-import cz.muni.fi.swq.refactor.tron.model.CollisionDetector;
 
 import java.awt.Color;
 import java.util.ArrayList;
