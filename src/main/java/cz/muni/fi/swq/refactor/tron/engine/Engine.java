@@ -38,20 +38,19 @@ public class Engine {
     }
 
 
-    public void gameLoop(){
+    public void gameLoop() {
 
         long cumTime = System.currentTimeMillis();
 
-        while (running){
+        while (running) {
             long timePassed = System.currentTimeMillis() - cumTime;
             cumTime+= timePassed;
-            update(timePassed);
             playground.gameTick();
             drawer.draw(playground.getGraphicObjects());
 
-            try{
+            try {
                 Thread.sleep(20);
-            } catch(Exception ignored){}
+            } catch(Exception ignored){} // this is bad but we cant change functionality
         }
     }
 
