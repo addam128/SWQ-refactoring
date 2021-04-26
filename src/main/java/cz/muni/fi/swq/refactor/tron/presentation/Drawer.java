@@ -68,12 +68,14 @@ public class Drawer implements DrawerContract {
         w.addKeyListener(listener);
     }
 
+    @Override
     public void addMouseListener(MouseListener listener) {
 
         Window w = screenManager.getFullScreenWindow();
         w.addMouseListener(listener);
     }
 
+    @Override
     public void addMouseWheelListener(MouseWheelListener listener) {
 
         Window w = screenManager.getFullScreenWindow();
