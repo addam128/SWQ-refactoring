@@ -42,6 +42,7 @@ public class Drawer implements DrawerContract {
 
     @Override
     public void draw(List<ColoredRectangle> objects) {
+
         Graphics2D g = screenManager.getGraphics();
         g.setColor(Color.BLACK);
         g.fillRect(0, 0, screenManager.getWidth(), screenManager.getHeight());
@@ -50,6 +51,7 @@ public class Drawer implements DrawerContract {
             g.setColor(rectangle.getColor());
             g.fillRect(rectangle.getStartX(), rectangle.getStartY(), rectangle.getWidth(), rectangle.getHeight());
         }
+
         g.dispose();
         screenManager.update();
     }
@@ -61,16 +63,19 @@ public class Drawer implements DrawerContract {
 
     @Override
     public void addKeyListener(KeyListener listener) {
+
         Window w = screenManager.getFullScreenWindow();
         w.addKeyListener(listener);
     }
 
     public void addMouseListener(MouseListener listener) {
+
         Window w = screenManager.getFullScreenWindow();
         w.addMouseListener(listener);
     }
 
     public void addMouseWheelListener(MouseWheelListener listener) {
+
         Window w = screenManager.getFullScreenWindow();
         w.addMouseWheelListener(listener);
     }
