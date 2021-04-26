@@ -8,6 +8,7 @@ import cz.muni.fi.swq.refactor.tron.engine.listeners.ArrowsListener;
 import cz.muni.fi.swq.refactor.tron.engine.listeners.WASDListener;
 import cz.muni.fi.swq.refactor.tron.engine.presentation.DrawerContract;
 import cz.muni.fi.swq.refactor.tron.engine.presentation.ScreenManagerDefault;
+import cz.muni.fi.swq.refactor.tron.model.MouseListener;
 import cz.muni.fi.swq.refactor.tron.model.PlayGround;
 import cz.muni.fi.swq.refactor.tron.model.Player;
 import cz.muni.fi.swq.refactor.tron.presentation.Drawer;
@@ -35,11 +36,18 @@ public class Game {
         PlayerTrait player1 = new Player(40,40, drawer.getScreenWidth(), drawer.getScreenHeight(), Direction.RIGHT);
         PlayerTrait player2 =  new Player(600, 440, drawer.getScreenWidth(), drawer.getScreenHeight(), Direction.LEFT);
 
+//        PlayerTrait player3 = new Player(200, 200, drawer.getScreenWidth(), drawer.getScreenHeight(), Direction.UP);
+
         playground.addPlayer(player1, Color.green);
         playground.addPlayer(player2, Color.red);
 
+//        playground.addPlayer(player3, Color.blue);
+
         drawer.addKeyListener(new ArrowsListener(player1));
         drawer.addKeyListener(new WASDListener(player2));
+
+//        drawer.addMouseListener(new MouseListener(player3));
+//        drawer.addMouseWheelListener(new MouseListener(player3));
     }
 
     private void run() {

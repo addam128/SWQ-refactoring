@@ -6,6 +6,8 @@ import cz.muni.fi.swq.refactor.tron.engine.presentation.ScreenManagerContract;
 
 import java.awt.*;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseWheelListener;
 import java.awt.image.BufferedImage;
 import java.util.List;
 
@@ -48,6 +50,16 @@ public class Drawer implements DrawerContract {
     public void addKeyListener(KeyListener listener) {
         Window w = screenManager.getFullScreenWindow();
         w.addKeyListener(listener);
+    }
+
+    public void addMouseListener(MouseListener listener) {
+        Window w = screenManager.getFullScreenWindow();
+        w.addMouseListener(listener);
+    }
+
+    public void addMouseWheelListener(MouseWheelListener listener) {
+        Window w = screenManager.getFullScreenWindow();
+        w.addMouseWheelListener(listener);
     }
 
     @Override
