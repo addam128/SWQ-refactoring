@@ -19,10 +19,6 @@ public class Engine {
         this.drawer = drawer;
     }
 
-    public void stop(){
-        running = false;
-    }
-
     public void run() {
 
         try {
@@ -31,10 +27,6 @@ public class Engine {
         } finally {
             drawer.restoreScreen();
         }
-    }
-
-    public void init(){
-        running = true;
     }
 
 
@@ -50,6 +42,4 @@ public class Engine {
             } catch(Exception ignored){} // this is bad but we cant change functionality
         }
     }
-
-    public void update(long timePassed){}
 }
