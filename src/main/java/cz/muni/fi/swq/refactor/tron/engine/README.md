@@ -19,3 +19,24 @@ This README explains basic structure and principles of the engine, for more deta
 
 # Example
 See enclosed implementation of TRON game to see how to fully utilize and benefit from this engine!
+
+# How To implement a Game
+
+Implement your own classes based on:
+
+  *  `PositionTrait`: implement how this should change on signal
+  *  `PlayerTrait`: with the help of implemented position, implement its direction change logic
+  *  `CollisionDetectorContract` : Handle collisions of players, game objects, etc
+  *  `PlayGroundContract` : Implement your holder of players, game objects, and add game ticking logic and GUI object reporting
+  *  `controls` : Use existing controls or implement java.awt.(Key/Mouse*)Listener
+  *  `DrawerContract`: Implement a class handling drawing and screen management, use the provided ScreenManagerDefault if it fits
+
+Put it all together:
+  
+  *  Create your players (and game objects if any)
+  *  Create a playground and add players, object, collision detectors
+  *  Wrap the players into control objects
+  *  Create a drawer
+  *  Add the control objects to the drawer
+  *  Create an Engine
+  *  Add the Playground and Drawer to the Engine
