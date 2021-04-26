@@ -31,8 +31,8 @@ public class ScreenManagerDefault implements ScreenManagerContract {
 
 	public ScreenManagerDefault() {
 
-		GraphicsEnvironment e = GraphicsEnvironment.getLocalGraphicsEnvironment();
-		graphicsDevice = e.getDefaultScreenDevice();
+		GraphicsEnvironment environment = GraphicsEnvironment.getLocalGraphicsEnvironment();
+		graphicsDevice = environment.getDefaultScreenDevice();
 	}
 	
 	public DisplayMode[] getCompatibleDisplayModes(){
@@ -102,22 +102,22 @@ public class ScreenManagerDefault implements ScreenManagerContract {
 	
 	public Graphics2D getGraphics() {
 
-		Window w = graphicsDevice.getFullScreenWindow();
+		Window window = graphicsDevice.getFullScreenWindow();
 
-		if (w != null) {
-			BufferStrategy bs = w.getBufferStrategy();
-			return (Graphics2D)bs.getDrawGraphics();
+		if (window != null) {
+			BufferStrategy bufferStrat = window.getBufferStrategy();
+			return (Graphics2D)bufferStrat.getDrawGraphics();
 		}
 		return null;
 	}
 	
 	public void update() {
 
-		Window w = graphicsDevice.getFullScreenWindow();
-		if (w != null) {
-			BufferStrategy bs = w.getBufferStrategy();
-			if (!bs.contentsLost()) {
-				bs.show();
+		Window window = graphicsDevice.getFullScreenWindow();
+		if (window != null) {
+			BufferStrategy bufferStrat = window.getBufferStrategy();
+			if (!bufferStrat.contentsLost()) {
+				bufferStrat.show();
 			}
 		}
 	}
@@ -129,28 +129,28 @@ public class ScreenManagerDefault implements ScreenManagerContract {
 	
 	public int getWidth() {
 
-		Window w = graphicsDevice.getFullScreenWindow();
-		if (w != null) {
-			return w.getWidth();
+		Window window = graphicsDevice.getFullScreenWindow();
+		if (window != null) {
+			return window.getWidth();
 		}
 		return 0;
 	}
 	
 	public int getHeight() {
 
-		Window w = graphicsDevice.getFullScreenWindow();
+		Window window = graphicsDevice.getFullScreenWindow();
 
-		if (w != null) {
-			return w.getHeight();
+		if (window != null) {
+			return window.getHeight();
 		}
 		return 0;
 	}
 	
 	public void restoreScreen() {
 
-		Window w = graphicsDevice.getFullScreenWindow();
-		if (w != null) {
-			w.dispose();
+		Window window = graphicsDevice.getFullScreenWindow();
+		if (window != null) {
+			window.dispose();
 		}
 		graphicsDevice.setFullScreenWindow(null);
 	}
