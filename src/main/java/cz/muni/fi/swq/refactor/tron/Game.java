@@ -18,7 +18,7 @@ import java.awt.*;
  * @author Andrej Tomci
  */
 public class Game {
-    private PlayGroundContract playground;
+
     private Engine engine;
 
     public static void main(String[] args) {
@@ -28,7 +28,8 @@ public class Game {
     }
 
     private void init() {
-        this.playground = new PlayGround();
+
+        PlayGroundContract playground = new PlayGround();
         DrawerContract drawer = new Drawer(new ScreenManagerDefault());
         this.engine = new Engine(playground, drawer);
 
