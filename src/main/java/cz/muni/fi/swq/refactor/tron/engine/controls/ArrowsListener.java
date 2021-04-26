@@ -1,4 +1,4 @@
-package cz.muni.fi.swq.refactor.tron.engine.listeners;
+package cz.muni.fi.swq.refactor.tron.engine.controls;
 
 import cz.muni.fi.swq.refactor.tron.engine.models.Direction;
 import cz.muni.fi.swq.refactor.tron.engine.models.PlayerTrait;
@@ -7,9 +7,10 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 /** Implementation of KeyListener that provides up-down-right-left arrows controls.
- *
+ *  This class wraps the Player implementation it controls.
  */
 public class ArrowsListener implements KeyListener {
+
     private final PlayerTrait player;
 
     public ArrowsListener(PlayerTrait player) {
@@ -19,6 +20,7 @@ public class ArrowsListener implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
+
         if (e.getKeyCode() == KeyEvent.VK_UP){
             player.changeDirection(Direction.UP);
         } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {

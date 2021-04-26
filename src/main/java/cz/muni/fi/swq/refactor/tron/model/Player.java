@@ -4,6 +4,7 @@ import cz.muni.fi.swq.refactor.tron.engine.models.Direction;
 import cz.muni.fi.swq.refactor.tron.engine.models.PlayerTrait;
 
 public class Player extends PlayerTrait {
+
     public Player( int startX,
             int startY,
             int maxX,

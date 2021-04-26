@@ -3,54 +3,40 @@ package cz.muni.fi.swq.refactor.tron.engine;
 import cz.muni.fi.swq.refactor.tron.engine.presentation.DrawerContract;
 import cz.muni.fi.swq.refactor.tron.engine.models.PlayGroundContract;
 
-/** Middleware class that combines model and presentation layers and takes care of game loop.
+/** Middleware class that connects model and presentation layers and takes care of game loop.
  *
  */
 public class Engine {
 
     private boolean running;
-    private PlayGroundContract playground;
-    private DrawerContract drawer;
+    private final PlayGroundContract playground;
+    private final DrawerContract drawer;
 
     public Engine(PlayGroundContract playground, DrawerContract drawer) {
+
         this.running = false;
         this.playground = playground;
         this.drawer = drawer;
+    }
+
+    public void run() {
+
         running = true;
-    }
-    public void stop(){
-        running = false;
-    }
-
-    public void run(){
-        try{
-            gameLoop();
-        }finally{
-            drawer.restoreScreen();
-        }
+        gameLoop();
+        drawer.restoreScreen();
     }
 
-    public void init(){
-    }
 
-    // TODO: Mouse, mouse motion listeners
+    public void gameLoop() {
 
-    public void gameLoop(){
-        long startTime = System.currentTimeMillis();
-        long cumTime = startTime;
+        while (running) {
 
-        while (running){
-            long timePassed = System.currentTimeMillis()-cumTime;
-            cumTime+= timePassed;
-            update(timePassed);
             playground.gameTick();
             drawer.draw(playground.getGraphicObjects());
 
-            try{
+            try {
                 Thread.sleep(20);
-            }catch(Exception ex){}
+            } catch(Exception ignored){} // this is bad but we cant change functionality
         }
     }
-
-    public void update(long timePassed){}
 }

@@ -4,14 +4,16 @@ import cz.muni.fi.swq.refactor.tron.engine.models.Direction;
 import cz.muni.fi.swq.refactor.tron.engine.models.PositionTrait;
 
 /**
- * @author Andrej Tomci
+ * An implementation of position.
  */
 public class Position extends PositionTrait {
+
     public Position(int startX, int startY, int maxX, int maxY) {
         super(startX, startY, maxX, maxY);
     }
 
     protected Coordinate computeNewCoords(int amount, Direction direction) {
+
         int newX = coords.getX();
         int newY = coords.getY();
 

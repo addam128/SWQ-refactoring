@@ -1,4 +1,4 @@
-package cz.muni.fi.swq.refactor.tron.engine.listeners;
+package cz.muni.fi.swq.refactor.tron.engine.controls;
 
 import cz.muni.fi.swq.refactor.tron.engine.models.Direction;
 import cz.muni.fi.swq.refactor.tron.engine.models.PlayerTrait;
@@ -10,6 +10,7 @@ import java.awt.event.KeyListener;
  *
  */
 public class WASDListener implements KeyListener {
+
     private final PlayerTrait player;
 
     public WASDListener(PlayerTrait player) {
@@ -19,6 +20,7 @@ public class WASDListener implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
+
         if (e.getKeyCode() == KeyEvent.VK_W){
             player.changeDirection(Direction.UP);
         } else if (e.getKeyCode() == KeyEvent.VK_S) {

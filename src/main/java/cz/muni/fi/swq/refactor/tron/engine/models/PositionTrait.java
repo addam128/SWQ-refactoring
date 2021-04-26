@@ -1,6 +1,10 @@
 package cz.muni.fi.swq.refactor.tron.engine.models;
 
-/** Abstract class that partially solves Position and Coordinate topics, you can base your class representing Position and Coordinate on this class
+/** Abstract class that partially solves Position and Coordinate topics,
+ *  you can base your class representing Position and Coordinate on this class.
+ *
+ *  When doing your own implementation, and you dont need anything specific except
+ *  reacting to signals to move UP/DOWN/RIGHT/LEFT, you only need to implement one method.
  *
  */
 public abstract class PositionTrait {
@@ -54,5 +58,8 @@ public abstract class PositionTrait {
         return oldCoords;
     }
 
+    /*
+     * Implement this as it fits your needs.
+     */
     protected abstract Coordinate computeNewCoords(int amount, Direction direction);
 }
